@@ -196,7 +196,7 @@ const TLTaskTMS = ({ role }) => {
     setCommentLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8000/task/${taskId}/comments`,
+        `https://ems-cws-backend-9wgt.vercel.app/task/${taskId}/comments`,
       );
       setTaskComments(response.data.comments || []);
     } catch (error) {
@@ -230,7 +230,7 @@ const TLTaskTMS = ({ role }) => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.post(
-        `http://localhost:8000/task/${commentModalTask._id}/comment`,
+        `https://ems-cws-backend-9wgt.vercel.app/task/${commentModalTask._id}/comment`,
         { comment: newComment },
         {
           headers: {
@@ -267,7 +267,7 @@ const TLTaskTMS = ({ role }) => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.delete(
-        `http://localhost:8000/task/${taskId}/comment/${commentId}`,
+        `https://ems-cws-backend-9wgt.vercel.app/task/${taskId}/comment/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -294,7 +294,7 @@ const TLTaskTMS = ({ role }) => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.put(
-        `http://localhost:8000/task/${taskId}/comment/${commentId}`,
+        `https://ems-cws-backend-9wgt.vercel.app/task/${taskId}/comment/${commentId}`,
         { comment: newText },
         {
           headers: {
@@ -340,7 +340,7 @@ const TLTaskTMS = ({ role }) => {
   async function fetchUser() {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await axios.get("http://localhost:8000/me", {
+      const response = await axios.get("https://ems-cws-backend-9wgt.vercel.app/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const user = response.data;
@@ -355,7 +355,7 @@ const TLTaskTMS = ({ role }) => {
       try {
         const token = localStorage.getItem("accessToken");
         if (token) {
-          const response = await axios.get("http://localhost:8000/me", {
+          const response = await axios.get("https://ems-cws-backend-9wgt.vercel.app/me", {
             headers: { Authorization: `Bearer ${token}` },
           });
           setCurrentUser(response.data);
@@ -370,7 +370,7 @@ const TLTaskTMS = ({ role }) => {
 
   const fetchTeamLeaderProjects = async (teamLeadId) => {
     try {
-      const response = await axios.get(`http://localhost:8000/${teamLeadId}/projects`);
+      const response = await axios.get(`https://ems-cws-backend-9wgt.vercel.app/${teamLeadId}/projects`);
       
       if (response.data.success) {
         const projectNames = response.data.projects.map(p => p.project.name);
@@ -392,7 +392,7 @@ const TLTaskTMS = ({ role }) => {
 
       await fetchTeamLeaderProjects(teamLeadId);
 
-      const res = await axios.get(`http://localhost:8000/tasks/${teamLeadId}`, {
+      const res = await axios.get(`https://ems-cws-backend-9wgt.vercel.app/tasks/${teamLeadId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -469,7 +469,7 @@ const TLTaskTMS = ({ role }) => {
 
   const fetchStatuses = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/unique`);
+      const res = await axios.get(`https://ems-cws-backend-9wgt.vercel.app/unique`);
       if (res.data.success) {
         const normalized = res.data.data.map(s => ({
           _id: s._id || s.id,
@@ -491,7 +491,7 @@ const TLTaskTMS = ({ role }) => {
     try {
       const token = localStorage.getItem("accessToken");
       
-      const projectsRes = await axios.get("http://localhost:8000/api/projects", {
+      const projectsRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/api/projects", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -500,7 +500,7 @@ const TLTaskTMS = ({ role }) => {
 
       if (selectedProject && selectedProject._id) {
         const empRes = await axios.get(
-          `http://localhost:8000/projects/employees/${selectedProject._id}`,
+          `https://ems-cws-backend-9wgt.vercel.app/projects/employees/${selectedProject._id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -582,15 +582,15 @@ const TLTaskTMS = ({ role }) => {
         const user = await fetchUser();
         const teamLeadId = user._id;
         
-        const res = await axios.get("http://localhost:8000/getAllDepartments");
+        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getAllDepartments");
         const empRes = await axios.get(
-          `http://localhost:8000/employees/manager/${teamLeadId}`,
+          `https://ems-cws-backend-9wgt.vercel.app/employees/manager/${teamLeadId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
         const taskTypeRes = await axios.get(
-          `http://localhost:8000/api/task-types/unique-names`,
+          `https://ems-cws-backend-9wgt.vercel.app/api/task-types/unique-names`,
         );
         
         await fetchTeamLeaderProjects(teamLeadId);
@@ -704,7 +704,7 @@ const TLTaskTMS = ({ role }) => {
     const fetchWeeklyOffs = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/admin/weeklyoff/${new Date().getFullYear()}`,
+          `https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
         );
 
         const weeklyData = res.data?.data || {};
@@ -760,7 +760,7 @@ const TLTaskTMS = ({ role }) => {
 
       // Fetch employee leave
       const leaveRes = await axios.get(
-        `http://localhost:8000/leave/manager/${user._id}`,
+        `https://ems-cws-backend-9wgt.vercel.app/leave/manager/${user._id}`,
       );
 
       const leaves = leaveRes.data.data || [];
@@ -788,7 +788,7 @@ const TLTaskTMS = ({ role }) => {
         return;
       }
 
-      const holidaysRes = await axios.get("http://localhost:8000/getHolidays");
+      const holidaysRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getHolidays");
       const holidays = holidaysRes.data || [];
 
       const isHoliday = holidays.some((holiday) => {
@@ -866,7 +866,7 @@ const TLTaskTMS = ({ role }) => {
 
       if (editTaskId) {
         await axios.put(
-          `http://localhost:8000/task/${editTaskId}`,
+          `https://ems-cws-backend-9wgt.vercel.app/task/${editTaskId}`,
           formData,
           {
             headers: {
@@ -876,7 +876,7 @@ const TLTaskTMS = ({ role }) => {
         );
       } else {
         await axios.post(
-          "http://localhost:8000/task/create",
+          "https://ems-cws-backend-9wgt.vercel.app/task/create",
           formData,
           {
             headers: {
@@ -997,7 +997,7 @@ const TLTaskTMS = ({ role }) => {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
 
     try {
-      await axios.delete(`http://localhost:8000/task/${id}`);
+      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/task/${id}`);
       setAllTasks((prev) => prev.filter((t) => t._id !== id));
       setFilteredTasks((prev) => prev.filter((t) => t._id !== id));
       alert("Task deleted Successfuly!");
@@ -1261,7 +1261,7 @@ const TLTaskTMS = ({ role }) => {
 
       const token = localStorage.getItem("accessToken");
 
-      await axios.put(`http://localhost:8000/task/${task._id}`, formData, {
+      await axios.put(`https://ems-cws-backend-9wgt.vercel.app/task/${task._id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,

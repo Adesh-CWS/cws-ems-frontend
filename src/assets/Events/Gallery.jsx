@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:8000/api/gallery";
+const API_URL = "https://ems-cws-backend-9wgt.vercel.app/api/gallery";
 
 const CATEGORY_OPTIONS = [
   "Rewards & Recognition",

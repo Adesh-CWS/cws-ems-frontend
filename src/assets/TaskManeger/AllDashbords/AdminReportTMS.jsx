@@ -375,7 +375,7 @@ function AdminReportTMS() {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await axios.get("http://localhost:8000/task/getall");
+      const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/task/getall");
       setAllTasks(res.data || []);
     };
 
@@ -489,7 +489,7 @@ function AdminReportTMS() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/projects");
+        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/api/projects");
         setProjects(res.data?.data || res.data || []);
       } catch (err) {
         console.error("Project fetch error:", err);
@@ -599,15 +599,15 @@ function AdminReportTMS() {
       const token = localStorage.getItem("accessToken");
       console.log("token", token);
       const EmpResponse = await axios.get(
-        "http://localhost:8000/getAllEmployees",
+        "https://ems-cws-backend-9wgt.vercel.app/getAllEmployees",
         {
           headers: { Authorization: `Bearer ${token}` },
         },
       );
       const projectResponse = await axios.get(
-        "http://localhost:8000/api/projects/",
+        "https://ems-cws-backend-9wgt.vercel.app/api/projects/",
       );
-      const taskResponse = await axios.get("http://localhost:8000/task/getall");
+      const taskResponse = await axios.get("https://ems-cws-backend-9wgt.vercel.app/task/getall");
       const tasks = taskResponse.data.map(
         ({ _id, taskName, assignedTo, dateOfExpectedCompletion }) => ({
           _id,

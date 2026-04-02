@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:8000/api/projects";
+const API_URL = "https://ems-cws-backend-9wgt.vercel.app/api/projects";
 
 function AdminProjectTMS() {
   const [cardCounts, setCardCounts] = useState({
@@ -108,7 +108,7 @@ function AdminProjectTMS() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/managers/list")
+      .get("https://ems-cws-backend-9wgt.vercel.app/managers/list")
       .then((res) => {
         console.log("Managers fetched:", res.data);
         setManagerList(res.data);
@@ -124,7 +124,7 @@ function AdminProjectTMS() {
     const fetchWeeklyOffs = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/admin/weeklyoff/${new Date().getFullYear()}`,
+          `https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
         );
 
         const weeklyData = res.data?.data || {};
@@ -144,7 +144,7 @@ function AdminProjectTMS() {
 
   const fetchStatuses = async () => {
     try {
-      const uniqueRes = await axios.get("http://localhost:8000/unique");
+      const uniqueRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/unique");
       setStatusList(uniqueRes.data.data || []);
     } catch (error) {
       console.error("Error to fetch Status:", error);
@@ -313,7 +313,7 @@ function AdminProjectTMS() {
   const handleCreateSubmit = async (e) => {
     e.preventDefault();
 
-    const holidaysRes = await axios.get("http://localhost:8000/getHolidays");
+    const holidaysRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getHolidays");
     const holidays = holidaysRes.data?.data || holidaysRes.data || [];
 
     const isHoliday = (date) =>
@@ -389,7 +389,7 @@ function AdminProjectTMS() {
 
     try {
       const response = await axios.get(
-        `http://localhost:8000/project/${item._id}/comments`,
+        `https://ems-cws-backend-9wgt.vercel.app/project/${item._id}/comments`,
       );
       setProjectComments(response.data.comments || []);
     } catch (error) {
@@ -403,7 +403,7 @@ function AdminProjectTMS() {
     setCommentLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8000/project/${projectId}/comments`,
+        `https://ems-cws-backend-9wgt.vercel.app/project/${projectId}/comments`,
       );
       setProjectComments(response.data.comments || []);
     } catch (error) {
@@ -434,7 +434,7 @@ function AdminProjectTMS() {
 
     try {
       const res = await axios.post(
-        `http://localhost:8000/project/${commentModalProject._id}/comment`,
+        `https://ems-cws-backend-9wgt.vercel.app/project/${commentModalProject._id}/comment`,
         { comment: newComment },
         {
           headers: {
@@ -504,7 +504,7 @@ function AdminProjectTMS() {
   const handleEditSave = async (e) => {
     e.preventDefault();
 
-    const holidaysRes = await axios.get("http://localhost:8000/getHolidays");
+    const holidaysRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getHolidays");
     const holidays = holidaysRes.data?.data || holidaysRes.data || [];
 
     const isHoliday = (date) =>

@@ -70,7 +70,7 @@ const modalRef = useRef(null);
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.put(
-        `http://localhost:8000/events/${eventData._id}`,
+        `https://ems-cws-backend-9wgt.vercel.app/events/${eventData._id}`,
         { name, date }, // ✅ FIXED
         {
           headers: {

@@ -4,7 +4,7 @@
 
 import React, { useEffect, useState, useRef} from "react";
 import axios from "axios";
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://ems-cws-backend-9wgt.vercel.app";
 const STORAGE_KEY = "hr_policy";
 const ACK_KEY = "policy_ack_employee";
 
@@ -138,7 +138,7 @@ function EmployeePolicy({ user }) {
   const fetchEmployeeAcknowledgements = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/policy/employee-ack/${employeeId}`
+        `https://ems-cws-backend-9wgt.vercel.app/policy/employee-ack/${employeeId}`
       );
 
       if (res.data.success) {
@@ -158,7 +158,7 @@ function EmployeePolicy({ user }) {
       }
 
       const res = await axios.post(
-        "http://localhost:8000/policy/acknowledge",
+        "https://ems-cws-backend-9wgt.vercel.app/policy/acknowledge",
         {
           policyId,
           employeeId,
@@ -635,7 +635,7 @@ function EmployeePolicy({ user }) {
                   <td style={tdStyle}>
                     {policy.image ? (
                       <a
-                        href={`http://localhost:8000/uploads/${policy.image}`}
+                        href={`https://ems-cws-backend-9wgt.vercel.app/uploads/${policy.image}`}
                         download
                         target="_blank"
                         rel="noopener noreferrer"

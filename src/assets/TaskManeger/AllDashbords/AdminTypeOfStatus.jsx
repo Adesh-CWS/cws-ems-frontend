@@ -24,7 +24,7 @@ function AdminTypeOfStatus() {
   //  Fetch all statuses
   const fetchStatuses = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/taskstatus/all");
+      const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/taskstatus/all");
       setStatuses(res.data.statuses || []);
     } catch (error) {
       console.error("Failed to fetch statuses");
@@ -73,7 +73,7 @@ function AdminTypeOfStatus() {
     try {
       setLoading(true);
 
-      await axios.put(`http://localhost:8000/taskstatus/update/${editId}`, {
+      await axios.put(`https://ems-cws-backend-9wgt.vercel.app/taskstatus/update/${editId}`, {
         name: newName.trim(),
         description: newDesc?.trim() || "",
       });
@@ -97,7 +97,7 @@ function AdminTypeOfStatus() {
     if (!window.confirm("Are you sure you want to delete this status?")) return;
 
     try {
-      await axios.delete(`http://localhost:8000/taskstatus/delete/${id}`);
+      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/taskstatus/delete/${id}`);
       alert("Task status deleted successfully");
       fetchStatuses(); // refresh list
     } catch (error) {
@@ -118,7 +118,7 @@ function AdminTypeOfStatus() {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:8000/taskstatus/add", {
+      await axios.post("https://ems-cws-backend-9wgt.vercel.app/taskstatus/add", {
         name: newName,
         description: newDesc,
       });

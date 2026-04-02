@@ -35,7 +35,7 @@ function EmployeeProjectTMS({ employeeId }) {
       setError(null);
 
       const response = await axios.get(
-        `http://localhost:8000/projects/employee/${employeeId}`,
+        `https://ems-cws-backend-9wgt.vercel.app/projects/employee/${employeeId}`,
       );
 
       if (response.data.success && response.data.projects) {

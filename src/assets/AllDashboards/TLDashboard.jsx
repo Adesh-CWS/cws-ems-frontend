@@ -52,12 +52,12 @@ function TeamLeaderDashboard({ user }) {
   const fetchData = async () => {
     try {
       const leavesRes = await axios.get(
-        `http://localhost:8000/leave/team-leader/${user._id}`,
+        `https://ems-cws-backend-9wgt.vercel.app/leave/team-leader/${user._id}`,
       );
       setLeaves(leavesRes.data.leaves || []);
       
       const regRes = await axios.get(
-        `http://localhost:8000/regularization/team-leader/${user._id}`,
+        `https://ems-cws-backend-9wgt.vercel.app/regularization/team-leader/${user._id}`,
       );
   
       // ✅ Get the requests array from response
@@ -126,7 +126,7 @@ function TeamLeaderDashboard({ user }) {
         setSelectedLeave((prev) => ({ ...prev, status }));
       }
 
-      await axios.put(`http://localhost:8000/leave/${leaveId}/status`, {
+      await axios.put(`https://ems-cws-backend-9wgt.vercel.app/leave/${leaveId}/status`, {
         status,
         userId: user._id,
         role: user.role,
@@ -143,7 +143,7 @@ function TeamLeaderDashboard({ user }) {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.put(
-        `http://localhost:8000/attendance/regularization/${attendanceId}/status`,
+        `https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/${attendanceId}/status`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } },
       );

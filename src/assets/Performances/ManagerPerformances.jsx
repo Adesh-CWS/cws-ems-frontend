@@ -111,7 +111,7 @@ function ManagerPerformances() {
       return;
     }
 
-    fetch(`http://localhost:8000/performance/manager/${managerId}`)
+    fetch(`https://ems-cws-backend-9wgt.vercel.app/performance/manager/${managerId}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Manager API response:", data);
@@ -140,7 +140,7 @@ function ManagerPerformances() {
 
   //     // 🔁 API CALL (example)
   //     await axios.put(
-  //       `http://localhost:8000/performance/${selectedPerformance._id}`,
+  //       `https://ems-cws-backend-9wgt.vercel.app/performance/${selectedPerformance._id}`,
   //       payload,
   //     );
   //     // ✅ Update UI locally

@@ -72,7 +72,7 @@ const EmployeeFeedback = () => {
   //     const token = localStorage.getItem("accessToken");
   //     if (!token) return;
 
-  //     const response = await axios.get("http://localhost:8000/gethr", {
+  //     const response = await axios.get("https://ems-cws-backend-9wgt.vercel.app/gethr", {
   //       headers: {
   //         Authorization: `Bearer ${token}`,
   //       },
@@ -93,7 +93,7 @@ const EmployeeFeedback = () => {
       let recipients = [];
 
       // 1. Fetch HR users
-      const hrResponse = await axios.get("http://localhost:8000/gethr", {
+      const hrResponse = await axios.get("https://ems-cws-backend-9wgt.vercel.app/gethr", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -111,7 +111,7 @@ const EmployeeFeedback = () => {
       // 2. Fetch current user's details to get manager and role
       try {
         const userResponse = await axios.get(
-          `http://localhost:8000/users/${currentUser._id}`,
+          `https://ems-cws-backend-9wgt.vercel.app/users/${currentUser._id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -172,7 +172,7 @@ if (
         // 4. If user is a manager, fetch their assigned employees
         if (userData.role && userData.role.toLowerCase() === "manager") {
           const employeesResponse = await axios.get(
-            `http://localhost:8000/managers/${currentUser._id}/assigned-employees`,
+            `https://ems-cws-backend-9wgt.vercel.app/managers/${currentUser._id}/assigned-employees`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -199,7 +199,7 @@ if (
           }
 //----------------------------------------------------------------------------
               const tlResponse = await axios.get(
-                "http://localhost:8000/teamLead",
+                "https://ems-cws-backend-9wgt.vercel.app/teamLead",
                 {
                   headers: { Authorization: `Bearer ${token}` },
                 }
@@ -228,7 +228,7 @@ if (
         // rutuja code 
         if (userData.role && userData.role.toLowerCase() === "team_leader") {
           const teamMembersResponse = await axios.get(
-            `http://localhost:8000/${currentUser._id}/members`,
+            `https://ems-cws-backend-9wgt.vercel.app/${currentUser._id}/members`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -277,7 +277,7 @@ if (
       }
 
       const response = await axios.get(
-        `http://localhost:8000/feedback/employee/${currentUser._id}`,
+        `https://ems-cws-backend-9wgt.vercel.app/feedback/employee/${currentUser._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -347,7 +347,7 @@ if (
       }
 
       const response = await axios.put(
-        `http://localhost:8000/feedback/view/${feedbackId}`,
+        `https://ems-cws-backend-9wgt.vercel.app/feedback/view/${feedbackId}`,
         {},
         {
           headers: {
@@ -627,7 +627,7 @@ if (
 
       if (editId) {
         response = await axios.put(
-          `http://localhost:8000/feedback/edit/${editId}`,
+          `https://ems-cws-backend-9wgt.vercel.app/feedback/edit/${editId}`,
           {
             title: formData.title,
             message: formData.message,
@@ -641,7 +641,7 @@ if (
         );
       } else {
         response = await axios.post(
-          "http://localhost:8000/feedback/send",
+          "https://ems-cws-backend-9wgt.vercel.app/feedback/send",
           {
             receiverId: formData.receiverId,
             title: formData.title,
@@ -703,7 +703,7 @@ if (
     try {
       const token = localStorage.getItem("accessToken");
       if (token) {
-        await axios.delete(`http://localhost:8000/feedback/delete/${id}`, {
+        await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/feedback/delete/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

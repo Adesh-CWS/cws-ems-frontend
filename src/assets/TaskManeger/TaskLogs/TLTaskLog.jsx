@@ -209,7 +209,7 @@ const TLTaskLog = ({ user }) => {
         const dateStr = d.toISOString().split("T")[0];
 
         const res = await axios.get(
-          `http://localhost:8000/api/tasklogs/daily-workload?date=${dateStr}`,
+          `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/daily-workload?date=${dateStr}`,
           { headers: { Authorization: `Bearer ${token}` } },
         );
 
@@ -273,7 +273,7 @@ const TLTaskLog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.get(
-        `http://localhost:8000/api/tasklogs/daily-workload?date=${selectedDate}`,
+        `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/daily-workload?date=${selectedDate}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -399,7 +399,7 @@ const TLTaskLog = ({ user }) => {
       console.log("Fetching logs for Team Leader ID:", user._id);
       
       const response = await fetch(
-        `http://localhost:8000/api/tasklogs/tl/${user._id}/logs`,
+        `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/tl/${user._id}/logs`,
         {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -498,7 +498,7 @@ const TLTaskLog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.put(
-        `http://localhost:8000/api/tasklogs/approve/${logId}`,
+        `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/approve/${logId}`,
         {
           status: "Approved",
           rating: Number(rating),
@@ -527,7 +527,7 @@ const TLTaskLog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       await axios.put(
-        `http://localhost:8000/api/tasklogs/approve/${logId}`,
+        `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/approve/${logId}`,
         { status: "Rejected", rating: "", remarks: "" },
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -548,14 +548,14 @@ const TLTaskLog = ({ user }) => {
       let url = "";
 
       if (workloadDate) {
-        url = `http://localhost:8000/api/tasklogs/daily-workload?date=${workloadDate}`;
+        url = `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/daily-workload?date=${workloadDate}`;
       } else if (workloadWeek) {
         const weekStartDate = getStartDateOfWeek(workloadWeek);
-        url = `http://localhost:8000/api/tasklogs/workload/weekly?date=${weekStartDate}`;
+        url = `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/workload/weekly?date=${weekStartDate}`;
       } else if (workloadMonth) {
         // Monthly API
         const [year, month] = workloadMonth.split("-");
-        url = `http://localhost:8000/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
+        url = `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
       } else {
         console.warn("No filter selected");
         return;

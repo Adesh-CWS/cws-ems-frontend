@@ -10,7 +10,7 @@ function AdminWeeklyOffSetup() {
     const fetchWeeklyOff = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/admin/weeklyoff/${year}`,
+          `https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${year}`,
         );
         setSaturdays(res.data?.data?.saturdays || []);
       } catch (err) {
@@ -29,7 +29,7 @@ function AdminWeeklyOffSetup() {
 
   const saveWeeklyOff = async () => {
     try {
-      await axios.post("http://localhost:8000/admin/weeklyoff", {
+      await axios.post("https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff", {
         year,
         saturdays,
       });

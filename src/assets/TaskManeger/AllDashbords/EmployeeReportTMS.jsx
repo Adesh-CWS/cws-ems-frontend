@@ -63,7 +63,7 @@ function EmployeeReportTMS({ employeeId }) {
     if (!employeeId) return;
 
     axios
-      .get(`http://localhost:8000/tasks/assigned/${employeeId}`)
+      .get(`https://ems-cws-backend-9wgt.vercel.app/tasks/assigned/${employeeId}`)
       .then((res) => {
         const apiTasks = res.data.tasks.map((task) => ({
           _id: task._id,
@@ -223,7 +223,7 @@ function EmployeeReportTMS({ employeeId }) {
       setLoadingProjects(true);
 
       const res = await axios.get(
-        `http://localhost:8000/projects/employee/${employeeId}`,
+        `https://ems-cws-backend-9wgt.vercel.app/projects/employee/${employeeId}`,
       );
 
       if (res.data.success) {
@@ -247,7 +247,7 @@ function EmployeeReportTMS({ employeeId }) {
       setLoadingDelayedTasks(true);
 
       const res = await axios.get(
-        `http://localhost:8000/api/tasks/employee/${employeeId}/delayed-tasks`,
+        `https://ems-cws-backend-9wgt.vercel.app/api/tasks/employee/${employeeId}/delayed-tasks`,
       );
 
       if (res.data.success) {
@@ -271,7 +271,7 @@ function EmployeeReportTMS({ employeeId }) {
       setLoadingUpcomingTasks(true);
 
       const res = await axios.get(
-        `http://localhost:8000/api/tasks/employee/${employeeId}/upcoming-tasks`,
+        `https://ems-cws-backend-9wgt.vercel.app/api/tasks/employee/${employeeId}/upcoming-tasks`,
       );
 
       if (res.data.success) {
@@ -304,7 +304,7 @@ function EmployeeReportTMS({ employeeId }) {
       setLoadingTeam(true);
 
       const res = await axios.get(
-        `http://localhost:8000/api/employee/${employeeId}/teams`,
+        `https://ems-cws-backend-9wgt.vercel.app/api/employee/${employeeId}/teams`,
       );
 
       if (res.data.success) {

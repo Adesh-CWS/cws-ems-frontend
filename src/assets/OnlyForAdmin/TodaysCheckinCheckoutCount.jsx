@@ -8,7 +8,7 @@ const TodaysCheckinCheckoutCount = ({ employeeId }) => {
   const token = localStorage.getItem("accessToken");
 
   const authAxios = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: "https://ems-cws-backend-9wgt.vercel.app",
     headers: { Authorization: `Bearer ${token}` },
   });
 

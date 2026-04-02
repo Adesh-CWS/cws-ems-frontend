@@ -40,7 +40,7 @@ function AdminTypeOfTask() {
 
   const fetchTaskTypes = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/task-types");
+      const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/api/task-types");
       // setItems(res.data || []);
       const sorted = (res.data || []).sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
@@ -75,7 +75,7 @@ function AdminTypeOfTask() {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/getAllDepartments");
+        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getAllDepartments");
 
         console.log("Departments API:", res.data);
 
@@ -98,7 +98,7 @@ function AdminTypeOfTask() {
     try {
       setLoading(true);
 
-      await axios.post("http://localhost:8000/api/task-types", {
+      await axios.post("https://ems-cws-backend-9wgt.vercel.app/api/task-types", {
         name: newName.trim(),
         description: newDesc.trim(),
         priority: newPriority,
@@ -127,7 +127,7 @@ function AdminTypeOfTask() {
     try {
       setLoading(true);
 
-      await axios.put(`http://localhost:8000/api/task-types/${editId}`, {
+      await axios.put(`https://ems-cws-backend-9wgt.vercel.app/api/task-types/${editId}`, {
         name: newName.trim(),
         description: newDesc?.trim() || "",
         priority: newPriority,
@@ -204,7 +204,7 @@ function AdminTypeOfTask() {
     if (!ok) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/task-types/${id}`);
+      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/api/task-types/${id}`);
        alert("Task type deleted successfully");
       fetchTaskTypes();
     } catch (error) {

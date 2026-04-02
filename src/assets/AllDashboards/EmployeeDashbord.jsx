@@ -48,7 +48,7 @@ function EmployeeDashboard({ user }) {
   const token = localStorage.getItem("accessToken");
 
   const authAxios = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: "https://ems-cws-backend-9wgt.vercel.app",
     headers: { Authorization: `Bearer ${token}` },
   });
 
@@ -338,7 +338,7 @@ function EmployeeDashboard({ user }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/leave/apply", {
+      await axios.post("https://ems-cws-backend-9wgt.vercel.app/leave/apply", {
         employeeId: user._id,
         ...form,
       });
@@ -354,9 +354,9 @@ function EmployeeDashboard({ user }) {
     const fetchData = async () => {
       try {
         const [leaveRes, regRes] = await Promise.all([
-          axios.get(`http://localhost:8000/leave/my/${user._id}`),
+          axios.get(`https://ems-cws-backend-9wgt.vercel.app/leave/my/${user._id}`),
           axios.get(
-            `http://localhost:8000/attendance/regularization/my/${user._id}`,
+            `https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/my/${user._id}`,
           ),
         ]);
 

@@ -108,7 +108,7 @@ function TeamLeaderPerformances() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8000/performance/team-leader/${teamLeaderId}`,
+        `https://ems-cws-backend-9wgt.vercel.app/performance/team-leader/${teamLeaderId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -148,7 +148,7 @@ function TeamLeaderPerformances() {
       };
 
       const response = await fetch(
-        `http://localhost:8000/performance/team-leader/${selectedPerformance._id}`,
+        `https://ems-cws-backend-9wgt.vercel.app/performance/team-leader/${selectedPerformance._id}`,
         {
           method: "PUT",
           headers: {

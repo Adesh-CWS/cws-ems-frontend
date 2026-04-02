@@ -33,7 +33,7 @@ function EmployeeFullAttendance() {
     const fetchHolidays = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const response = await axios.get("http://localhost:8000/getHolidays", {
+        const response = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getHolidays", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setHolidays(response.data);
@@ -57,7 +57,7 @@ function EmployeeFullAttendance() {
       try {
         const token = localStorage.getItem("accessToken");
         const currentYear = new Date().getFullYear();
-        const response = await axios.get(`http://localhost:8000/admin/weeklyoff/${currentYear}`, {
+        const response = await axios.get(`https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${currentYear}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setWeeklyOffConfig(response.data.data);
@@ -149,12 +149,12 @@ function EmployeeFullAttendance() {
         setLoading(true);
         const token = localStorage.getItem("accessToken");
         const authAxios = axios.create({
-          baseURL: "http://localhost:8000",
+          baseURL: "https://ems-cws-backend-9wgt.vercel.app",
           headers: { Authorization: `Bearer ${token}` },
         });
 
         const empRes = await axios.get(
-          `http://localhost:8000/employees/${empId}`,
+          `https://ems-cws-backend-9wgt.vercel.app/employees/${empId}`,
         );
         setEmployee(empRes.data);
 
@@ -448,7 +448,7 @@ const statusBg = {
       console.log("Fetching breaks for:", formattedDate);
 
       const res = await axios.get(
-        `http://localhost:8000/api/break/admin/${empId}`,
+        `https://ems-cws-backend-9wgt.vercel.app/api/break/admin/${empId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { date: formattedDate },

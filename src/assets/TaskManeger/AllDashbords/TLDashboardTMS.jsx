@@ -68,7 +68,7 @@ function TLDashboardTMS() {
         if (!token || !id) return;
 
         const membersRes = await axios.get(
-          `http://localhost:8000/${id}/members`,
+          `https://ems-cws-backend-9wgt.vercel.app/${id}/members`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -96,7 +96,7 @@ function TLDashboardTMS() {
 
         // Fetch Teams
         const teamsRes = await axios.get(
-          `http://localhost:8000/api/teams/user/${id}/teams`,
+          `https://ems-cws-backend-9wgt.vercel.app/api/teams/user/${id}/teams`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -105,7 +105,7 @@ function TLDashboardTMS() {
 
         // Fetch Projects
         const projectsRes = await axios.get(
-          `http://localhost:8000/${id}/projects`,
+          `https://ems-cws-backend-9wgt.vercel.app/${id}/projects`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -153,7 +153,7 @@ function TLDashboardTMS() {
 
         // Fetch Tasks
         const tasksRes = await axios.get(
-          `http://localhost:8000/tasks/${id}`,
+          `https://ems-cws-backend-9wgt.vercel.app/tasks/${id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -224,7 +224,7 @@ function TLDashboardTMS() {
 
         // Use the new available employees API
         const res = await axios.get(
-          `http://localhost:8000/${id}/available-employees`,
+          `https://ems-cws-backend-9wgt.vercel.app/${id}/available-employees`,
           { 
             headers: { Authorization: `Bearer ${token}` }
           }

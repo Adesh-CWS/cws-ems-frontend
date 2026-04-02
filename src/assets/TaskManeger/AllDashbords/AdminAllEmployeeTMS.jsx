@@ -39,7 +39,7 @@ function AdminAllEmployeeTMS({ user }) {
         let response;
 
         if (role === "manager") {
-          url = `http://localhost:8000/managers/${managerId}/assigned-employees`;
+          url = `https://ems-cws-backend-9wgt.vercel.app/managers/${managerId}/assigned-employees`;
           console.log("Fetching manager's employees from:", url);
           
           response = await axios.get(url, { headers });
@@ -49,7 +49,7 @@ function AdminAllEmployeeTMS({ user }) {
           setEmployees(employeesData);
           setFilteredTasks(employeesData);
         } else {
-          url = "http://localhost:8000/getAllEmployees";
+          url = "https://ems-cws-backend-9wgt.vercel.app/getAllEmployees";
           console.log("Fetching all employees from:", url);
           
           const employeesRes = await axios.get(url, { headers });

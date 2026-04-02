@@ -486,7 +486,7 @@ function ManagerReportTMS({ user }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/managers/list")
+      .get("https://ems-cws-backend-9wgt.vercel.app/managers/list")
       .then((res) => setManagerList(res.data || []))
       .catch((err) => console.error(err));
   }, []);
@@ -799,7 +799,7 @@ function ManagerReportTMS({ user }) {
 
     const fetchTasks = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/tasks/${managerId}`);
+        const res = await axios.get(`https://ems-cws-backend-9wgt.vercel.app/tasks/${managerId}`);
 
         setAllTasks(res.data.tasks || []);
       } catch (error) {
@@ -816,7 +816,7 @@ function ManagerReportTMS({ user }) {
         const token = localStorage.getItem("accessToken");
 
         // get logged-in manager
-        const userRes = await axios.get("http://localhost:8000/me", {
+        const userRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -825,7 +825,7 @@ function ManagerReportTMS({ user }) {
 
         // SAME API AS MANAGER PROJECT FILE
         const res = await axios.get(
-          `http://localhost:8000/api/projects/manager/${managerId}`,
+          `https://ems-cws-backend-9wgt.vercel.app/api/projects/manager/${managerId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           },
@@ -843,10 +843,10 @@ function ManagerReportTMS({ user }) {
   async function fetchRequiredDetails() {
     try {
       const empResponse = await axios.get(
-        `http://localhost:8000/employees/manager/${user._id}`,
+        `https://ems-cws-backend-9wgt.vercel.app/employees/manager/${user._id}`,
       );
       const employeeList = empResponse.data.employees;
-      const taskResponse = await axios.get("http://localhost:8000/task/getall");
+      const taskResponse = await axios.get("https://ems-cws-backend-9wgt.vercel.app/task/getall");
       const tasks = taskResponse.data.map(
         ({
           _id,
@@ -865,7 +865,7 @@ function ManagerReportTMS({ user }) {
         }),
       );
       const projectsResponse = await axios.get(
-        `http://localhost:8000/api/projects/manager/${user._id}`,
+        `https://ems-cws-backend-9wgt.vercel.app/api/projects/manager/${user._id}`,
       );
       const projects = projectsResponse.data.data;
       setEmployeesTasks(tasks);

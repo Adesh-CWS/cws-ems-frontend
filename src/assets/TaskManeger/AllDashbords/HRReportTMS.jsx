@@ -238,7 +238,7 @@ function HRReportTMS() {
     /* 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await axios.get("http://localhost:8000/task/getall");
+      const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/task/getall");
       setAllTasks(res.data || []);
     };
 
@@ -354,7 +354,7 @@ function HRReportTMS() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/projects");
+        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/api/projects");
         setProjects(res.data?.data || res.data || []);
       } catch (err) {
         console.error("Project fetch error:", err);
@@ -502,9 +502,9 @@ function HRReportTMS() {
 
         // Fetch all data using your existing APIs change dip
         const [employeesRes, tasksRes, projectsRes] = await Promise.all([
-          axios.get("http://localhost:8000/getAllEmployees", { headers }),
-          axios.get("http://localhost:8000/task/getall", { headers }),
-          axios.get("http://localhost:8000/api/projects", { headers }),
+          axios.get("https://ems-cws-backend-9wgt.vercel.app/getAllEmployees", { headers }),
+          axios.get("https://ems-cws-backend-9wgt.vercel.app/task/getall", { headers }),
+          axios.get("https://ems-cws-backend-9wgt.vercel.app/api/projects", { headers }),
         ]);
 
         // if (!employeesRes.ok || !tasksRes.ok || !projectsRes.ok) {

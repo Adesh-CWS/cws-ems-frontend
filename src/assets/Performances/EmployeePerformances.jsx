@@ -101,7 +101,7 @@ function EmployeePerformances() {
     if (!userId || !role) return;
 
     fetch(
-      `http://localhost:8000/performance/employee?userId=${userId}&role=${role}`,
+      `https://ems-cws-backend-9wgt.vercel.app/performance/employee?userId=${userId}&role=${role}`,
     )
       .then((res) => res.json())
       .then((res) => {

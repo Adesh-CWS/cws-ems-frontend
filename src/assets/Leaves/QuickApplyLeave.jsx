@@ -72,7 +72,7 @@ function QuickApplyLeave({ user }) {
     const fetchWeeklyOffs = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/admin/weeklyoff/${new Date().getFullYear()}`,
+          `https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
         );
 
         // 👇 Extract weekly off data safely
@@ -107,7 +107,7 @@ function QuickApplyLeave({ user }) {
       if (!user?.reportingManager) return;
       try {
         const res = await axios.get(
-          `http://localhost:8000/users/${user.reportingManager}`,
+          `https://ems-cws-backend-9wgt.vercel.app/users/${user.reportingManager}`,
         );
         setManager(res.data);
       } catch (err) {
@@ -162,7 +162,7 @@ function QuickApplyLeave({ user }) {
   //   }
 
   //   try {
-  //     await axios.post("http://localhost:8000/leave/apply", {
+  //     await axios.post("https://ems-cws-backend-9wgt.vercel.app/leave/apply", {
   //       employeeId: user._id,
   //       leaveType: form.leaveType,
   //       dateFrom: form.dateFrom,
@@ -268,7 +268,7 @@ function QuickApplyLeave({ user }) {
  // -------------------- 🚫 HOLIDAY VALIDATION (NEW) --------------------
       const currentYear = new Date().getFullYear();
       try {
-        const holidaysRes = await axios.get("http://localhost:8000/getHolidays");
+        const holidaysRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getHolidays");
         const holidays = holidaysRes.data.filter(
           (h) => new Date(h.date).getFullYear() === currentYear,
         );
@@ -299,7 +299,7 @@ function QuickApplyLeave({ user }) {
     try {
       // ✅ 1️⃣ Fetch existing leaves of employee
       const existingLeavesRes = await axios.get(
-        `http://localhost:8000/leave/my/${user._id}`,
+        `https://ems-cws-backend-9wgt.vercel.app/leave/my/${user._id}`,
       );
       const existingLeaves = existingLeavesRes.data || [];
 
@@ -332,7 +332,7 @@ function QuickApplyLeave({ user }) {
         return;
       }
 
-      await axios.post("http://localhost:8000/leave/apply", {
+      await axios.post("https://ems-cws-backend-9wgt.vercel.app/leave/apply", {
         employeeId: user._id,
         leaveType: form.leaveType,
         dateFrom: form.dateFrom,

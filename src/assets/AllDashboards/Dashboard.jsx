@@ -162,7 +162,7 @@ const [notifications, setNotifications] = useState([]);
 
     let isMounted = true;
     axios
-      .get("http://localhost:8000/me", {
+      .get("https://ems-cws-backend-9wgt.vercel.app/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -204,7 +204,7 @@ const [notifications, setNotifications] = useState([]);
     }
 
     axios
-      .get(`http://localhost:8000/me`, {
+      .get(`https://ems-cws-backend-9wgt.vercel.app/me`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setUser(res.data))
@@ -221,7 +221,7 @@ const [notifications, setNotifications] = useState([]);
       setIsLoggingOut(true);
       const refreshToken = localStorage.getItem("refreshToken");
       // call backend to invalidate refresh token (optional)
-      await axios.post("http://localhost:8000/logout", { refreshToken });
+      await axios.post("https://ems-cws-backend-9wgt.vercel.app/logout", { refreshToken });
 
       // clear everything
       // ❗ Clear active browser session
@@ -276,7 +276,7 @@ const fetchNotifications = async () => {
 
   try {
     const res = await axios.get(
-      `http://localhost:8000/notifications/${user._id}`
+      `https://ems-cws-backend-9wgt.vercel.app/notifications/${user._id}`
     );
 
     const fifteenDaysAgo = new Date();

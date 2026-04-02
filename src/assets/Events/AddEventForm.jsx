@@ -93,7 +93,7 @@ const modalRef = useRef(null);
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.post(
-        "http://localhost:8000/addEvent",
+        "https://ems-cws-backend-9wgt.vercel.app/addEvent",
         { name, date },
         { headers: { Authorization: `Bearer ${token}` } },
       );

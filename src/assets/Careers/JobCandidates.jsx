@@ -123,7 +123,7 @@ useEffect(() => {
 
 
 useEffect(() => {
-  fetch(`http://localhost:8000/api/apply/job/${jobId}`)
+  fetch(`https://ems-cws-backend-9wgt.vercel.app/api/apply/job/${jobId}`)
     .then(res => res.json())
     .then(data => {
       const list = Array.isArray(data)
@@ -139,7 +139,7 @@ useEffect(() => {
 
 
 async function handleStatusChange(applicationId, newStatus) {
-  await axios.put(`http://localhost:8000/api/apply/${applicationId}`, {
+  await axios.put(`https://ems-cws-backend-9wgt.vercel.app/api/apply/${applicationId}`, {
     status: newStatus,
   });
 

@@ -23,7 +23,7 @@ function EmployeeApplyLeave({ user, onLeaveApplied }) {
     const fetchWeeklyOffs = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/admin/weeklyoff/${new Date().getFullYear()}`,
+          `https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
         );
         const weeklyData = res.data?.data || res.data || {};
         const saturdayOffs = weeklyData.saturdays || [];
@@ -48,7 +48,7 @@ function EmployeeApplyLeave({ user, onLeaveApplied }) {
         const token = localStorage.getItem("accessToken");
         if (!token) throw new Error("No auth token found");
 
-        const res = await axios.get('http://localhost:8000/getHolidays', {
+        const res = await axios.get('https://ems-cws-backend-9wgt.vercel.app/getHolidays', {
           headers: { 'Authorization': `Bearer ${token}` },
         });
 
@@ -92,7 +92,7 @@ function EmployeeApplyLeave({ user, onLeaveApplied }) {
       try {
         const token = localStorage.getItem("accessToken");
         const response = await axios.get(
-          `http://localhost:8000/employee/${user._id}/team-leader`,
+          `https://ems-cws-backend-9wgt.vercel.app/employee/${user._id}/team-leader`,
           {
             headers: { 'Authorization': `Bearer ${token}` }
           }
@@ -122,7 +122,7 @@ function EmployeeApplyLeave({ user, onLeaveApplied }) {
       }
       try {
         // ✅ Confirm this URL matches your backend (e.g., change to /api/users if needed)
-        const res = await axios.get(`http://localhost:8000/users/${user.reportingManager}`);
+        const res = await axios.get(`https://ems-cws-backend-9wgt.vercel.app/users/${user.reportingManager}`);
         setManager(res.data); // Process response
       } catch (err) {
         // ✅ Handle 404 specifically (user not found)
@@ -163,7 +163,7 @@ function EmployeeApplyLeave({ user, onLeaveApplied }) {
 
       try {
         const res = await axios.post(
-          "http://localhost:8000/leave/calculate",
+          "https://ems-cws-backend-9wgt.vercel.app/leave/calculate",
           {
             dateFrom: form.dateFrom,
             dateTo: form.dateTo,
@@ -237,7 +237,7 @@ function EmployeeApplyLeave({ user, onLeaveApplied }) {
     }
 
     try {
-      const existingLeavesRes = await axios.get(`http://localhost:8000/leave/my/${user._id}`);
+      const existingLeavesRes = await axios.get(`https://ems-cws-backend-9wgt.vercel.app/leave/my/${user._id}`);
       const existingLeaves = existingLeavesRes.data || [];
       const isOverlapping = existingLeaves.some((leave) => {
         const leaveFrom = new Date(leave.dateFrom);
@@ -254,7 +254,7 @@ function EmployeeApplyLeave({ user, onLeaveApplied }) {
         return;
       }
 
-      await axios.post("http://localhost:8000/leave/apply", {
+      await axios.post("https://ems-cws-backend-9wgt.vercel.app/leave/apply", {
         employeeId: user._id,
         leaveType: form.leaveType,
         dateFrom: dateFromParsed,
