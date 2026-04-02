@@ -66,12 +66,12 @@ const AdminTeamsTMS = () => {
 
       const [teamsRes, managersRes, employeesRes, departmentsRes] =
         await Promise.all([
-          axios.get("https://ems-cws-backend-9wgt.vercel.app/api/teams"),
-          axios.get("https://ems-cws-backend-9wgt.vercel.app/managers", {
+          axios.get("https://ems-cws-test.vercel.app/api/teams"),
+          axios.get("https://ems-cws-test.vercel.app/managers", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("https://ems-cws-backend-9wgt.vercel.app/getEmployeeCount", {}),
-          axios.get("https://ems-cws-backend-9wgt.vercel.app/getAllDepartments"),
+          axios.get("https://ems-cws-test.vercel.app/getEmployeeCount", {}),
+          axios.get("https://ems-cws-test.vercel.app/getAllDepartments"),
         ]);
       const normalizedDepartments = departmentsRes.data.departments.map((d) =>
         normalizeDepartment(d),
@@ -98,7 +98,7 @@ const AdminTeamsTMS = () => {
   };
   const fetchTeams = async () => {
     try {
-      const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/api/teams");
+      const res = await axios.get("https://ems-cws-test.vercel.app/api/teams");
       setAllTeams(res.data.data || []);
       console.log("all teams", res.data.data);
     } catch (error) {

@@ -71,7 +71,7 @@ function EditHolidayForm({ holidayData, onUpdate, onClose }) {
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/holidays/${holidayData._id}`, // ✅ FIXED
+        `https://ems-cws-test.vercel.app/holidays/${holidayData._id}`, // ✅ FIXED
         { name, date },
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -102,7 +102,7 @@ const ManagerTeamsTMS = ({ role }) => {
   async function fetchUser() {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await axios.get("https://ems-cws-backend-9wgt.vercel.app/me", {
+      const response = await axios.get("https://ems-cws-test.vercel.app/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const user = response.data;
@@ -118,13 +118,13 @@ const ManagerTeamsTMS = ({ role }) => {
       const user = await fetchUser();
       const [teamsRes, managersRes, employeesRes, departmentsRes] =
         await Promise.all([
-          axios.get(`https://ems-cws-backend-9wgt.vercel.app/api/teams/createdBy/${user._id}`),
-          axios.get("https://ems-cws-backend-9wgt.vercel.app/managers", {
+          axios.get(`https://ems-cws-test.vercel.app/api/teams/createdBy/${user._id}`),
+          axios.get("https://ems-cws-test.vercel.app/managers", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("https://ems-cws-backend-9wgt.vercel.app/getEmployeeCount", {}),
+          axios.get("https://ems-cws-test.vercel.app/getEmployeeCount", {}),
 
-          axios.get("https://ems-cws-backend-9wgt.vercel.app/getAllDepartments"),
+          axios.get("https://ems-cws-test.vercel.app/getAllDepartments"),
         ]);
 
       const normalizedDepartments = departmentsRes.data.departments.map((d) =>
@@ -151,7 +151,7 @@ const ManagerTeamsTMS = ({ role }) => {
     try {
       const user = await fetchUser();
       const res = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/api/teams/createdBy/${user._id}`,
+        `https://ems-cws-test.vercel.app/api/teams/createdBy/${user._id}`,
       );
 
       setAllTeams(res.data.data || []);
@@ -168,7 +168,7 @@ const ManagerTeamsTMS = ({ role }) => {
   const fetchTeamLeaders = async () => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await axios.get("https://ems-cws-backend-9wgt.vercel.app/teamLead", {
+      const response = await axios.get("https://ems-cws-test.vercel.app/teamLead", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTeamLeads(response.data || []);
@@ -183,13 +183,13 @@ const ManagerTeamsTMS = ({ role }) => {
     const fetchAddTaskRequiredDetails = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getAllDepartments");
+        const res = await axios.get("https://ems-cws-test.vercel.app/getAllDepartments");
         const user = await fetchUser();
         const empRes = await axios.get(
-          `https://ems-cws-backend-9wgt.vercel.app/employees/manager/${user._id}`,
+          `https://ems-cws-test.vercel.app/employees/manager/${user._id}`,
         );
         const projectRes = await axios.get(
-          `https://ems-cws-backend-9wgt.vercel.app/api/projects/manager/${user._id}`,
+          `https://ems-cws-test.vercel.app/api/projects/manager/${user._id}`,
         );
         await fetchTeamLeaders(); //rutuja
 
@@ -277,14 +277,14 @@ const ManagerTeamsTMS = ({ role }) => {
       let res;
       if (editTaskId) {
         res = await axios.put(
-          `https://ems-cws-backend-9wgt.vercel.app/api/teams/${editTaskId}`,
+          `https://ems-cws-test.vercel.app/api/teams/${editTaskId}`,
           payload,
           { headers: { "Content-Type": "application/json" } },
         );
         await fetchTeams();
       } else {
         const res = await axios.post(
-          "https://ems-cws-backend-9wgt.vercel.app/api/teams",
+          "https://ems-cws-test.vercel.app/api/teams",
           payload,
           { headers: { "Content-Type": "application/json" } },
         );
@@ -438,7 +438,7 @@ const projectStatus = team?.project?.status?.toLowerCase() || "";
     if (!window.confirm("Are you sure you want to delete this task?")) return;
 
     try {
-      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/api/teams/${id}`);
+      await axios.delete(`https://ems-cws-test.vercel.app/api/teams/${id}`);
       setAllTeams((prev) => prev.filter((t) => t._id !== id));
       setFilteredTeams((prev) => prev.filter((t) => t._id !== id));
       alert("Team deleted Successfully!!");

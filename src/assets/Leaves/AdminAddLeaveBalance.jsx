@@ -77,7 +77,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
   //NEW CODE
   useEffect(() => {
     axios
-      .get("https://ems-cws-backend-9wgt.vercel.app/leaves")
+      .get("https://ems-cws-test.vercel.app/leaves")
       .then((res) => {
         const now = new Date();
 
@@ -114,7 +114,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
     if (!token) return;
 
     axios
-      .get("https://ems-cws-backend-9wgt.vercel.app/me", {
+      .get("https://ems-cws-test.vercel.app/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setUser(res.data))
@@ -124,7 +124,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
   // 🔹 Fetch all leaves Added by Rutuja
   useEffect(() => {
     axios
-      .get("https://ems-cws-backend-9wgt.vercel.app/leaves")
+      .get("https://ems-cws-test.vercel.app/leaves")
       .then((res) => {
         const filteredByAdmin = res.data.filter(
           (l) => l.employee?.employeeId !== user?.employeeId,
@@ -150,7 +150,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
   //   if (!user?._id) return;
 
   //   try {
-  //     await axios.put(`https://ems-cws-backend-9wgt.vercel.app/leave/${leaveId}/status`, {
+  //     await axios.put(`https://ems-cws-test.vercel.app/leave/${leaveId}/status`, {
   //       status,
   //       userId: user._id,
   //       role: "admin",
@@ -176,7 +176,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
     }
 
     try {
-      await axios.put(`https://ems-cws-backend-9wgt.vercel.app/leave/${leaveId}/status`, {
+      await axios.put(`https://ems-cws-test.vercel.app/leave/${leaveId}/status`, {
         status,
         userId: user._id,
         role: "admin",
@@ -210,7 +210,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
 
   // const grantYearly = async () => {
   //   try {
-  //     const res = await axios.post("https://ems-cws-backend-9wgt.vercel.app/leave/grant-yearly", {
+  //     const res = await axios.post("https://ems-cws-test.vercel.app/leave/grant-yearly", {
   //       sl,
   //       cl,
   //     });
@@ -227,7 +227,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
   const fetchYearlySettings = async () => {
     try {
       const res = await axios.get(
-        "https://ems-cws-backend-9wgt.vercel.app/leave/yearly-settings",
+        "https://ems-cws-test.vercel.app/leave/yearly-settings",
       );
       setData(res.data);
     } catch (err) {
@@ -241,7 +241,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
 
   const grantYearly = async () => {
     try {
-      const res = await axios.post("https://ems-cws-backend-9wgt.vercel.app/leave/grant-yearly", {
+      const res = await axios.post("https://ems-cws-test.vercel.app/leave/grant-yearly", {
         sl,
         cl,
       });
@@ -272,7 +272,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
   const grantMonthly = async () => {
     try {
       const res = await axios.post(
-        "https://ems-cws-backend-9wgt.vercel.app/leave/grant-monthly",
+        "https://ems-cws-test.vercel.app/leave/grant-monthly",
         {
           sl,
           cl,
@@ -289,7 +289,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
 
   const fetchLeaveBalance = async () => {
     try {
-      const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/leave/balance");
+      const res = await axios.get("https://ems-cws-test.vercel.app/leave/balance");
       console.log("data", res.data);
       // if (res.data) {
       //   setSl(res.data.sl);
@@ -340,7 +340,7 @@ function AdminAddLeaveBalance({fetchNotifications}) {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/leave/${leaveId}`);
+      await axios.delete(`https://ems-cws-test.vercel.app/leave/${leaveId}`);
 
       // ✅ Remove the deleted leave from state
       setLeaves((prev) => prev.filter((l) => l._id !== leaveId));
@@ -360,7 +360,7 @@ fetchNotifications();
   //   }
 
   //   try {
-  //     const res = await axios.post("https://ems-cws-backend-9wgt.vercel.app/leave/reset-all");
+  //     const res = await axios.post("https://ems-cws-test.vercel.app/leave/reset-all");
   //     setMessage(`${res.data.message} (${res.data.count} employees affected) ✅`);
   //   } catch (err) {
   //     console.error("Error resetting leave balances:", err);
@@ -380,7 +380,7 @@ fetchNotifications();
     }
 
     try {
-      const res = await axios.delete("https://ems-cws-backend-9wgt.vercel.app/leave/reset-all");
+      const res = await axios.delete("https://ems-cws-test.vercel.app/leave/reset-all");
       alert(res.data.message);
       setData([]); // clear yearly table instantly
     } catch (err) {

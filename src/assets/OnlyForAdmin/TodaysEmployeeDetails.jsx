@@ -95,7 +95,7 @@ function TodaysEmployeeDetails() {
       const today = new Date().toISOString().split("T")[0];
 
       const res = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/api/break/admin/${emp._id}?date=${today}`,
+        `https://ems-cws-test.vercel.app/api/break/admin/${emp._id}?date=${today}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -191,7 +191,7 @@ function TodaysEmployeeDetails() {
         setLoading(true);
         const token = localStorage.getItem("accessToken");
         const authAxios = axios.create({
-          baseURL: "https://ems-cws-backend-9wgt.vercel.app",
+          baseURL: "https://ems-cws-test.vercel.app",
           headers: { Authorization: `Bearer ${token}` },
         });
 

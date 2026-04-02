@@ -121,7 +121,7 @@ const getDerivedStatus = (task) => {
 ////komal code 31-01-2026
  const fetchAllTasks = async () => {
     try {
-      const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/task/getall");
+      const res = await axios.get("https://ems-cws-test.vercel.app/task/getall");
 
       const mappedTasks = res.data.map((task) => {
   const mappedTask = {

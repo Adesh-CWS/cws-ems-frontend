@@ -58,7 +58,7 @@ function EventsAndHolidaysDashboard() {
     alert("Announcement delete successfully!");
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/announcements/${id}`, {
+      await axios.delete(`https://ems-cws-test.vercel.app/announcements/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -184,7 +184,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchAnnouncements = async () => {
       try {
-        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/announcements/");
+        const res = await axios.get("https://ems-cws-test.vercel.app/announcements/");
         const data = res.data.data || [];
   
         //  KEEP API ORDER (LIFO)
@@ -202,7 +202,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
-        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getHolidays");
+        const res = await axios.get("https://ems-cws-test.vercel.app/getHolidays");
 
         // Sort by date and store all holidays
         const sorted = res.data.sort(
@@ -223,7 +223,7 @@ useEffect(() => {
     alert("Holiday delete successfully!");
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/holidays/${id}`, {
+      await axios.delete(`https://ems-cws-test.vercel.app/holidays/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setHolidayList((prev) => prev.filter((h) => h._id !== id));
@@ -240,7 +240,7 @@ useEffect(() => {
       try {
         const token = localStorage.getItem("accessToken");
         const res = await axios.get(
-          "https://ems-cws-backend-9wgt.vercel.app/events-for-employee",
+          "https://ems-cws-test.vercel.app/events-for-employee",
           {
             headers: { Authorization: `Bearer ${token}` },
           },
@@ -264,7 +264,7 @@ useEffect(() => {
     alert("Event delete successfully!");
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/events/${id}`, {
+      await axios.delete(`https://ems-cws-test.vercel.app/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setEventsList((prev) => prev.filter((h) => h._id !== id));

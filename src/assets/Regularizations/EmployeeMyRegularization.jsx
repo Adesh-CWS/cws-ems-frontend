@@ -71,7 +71,7 @@ function EmployeeMyRegularization({ employeeId, refreshKey }) {
     const fetchRequests = async () => {
       try {
         const res = await axios.get(
-          `https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/my/${employeeId}`,
+          `https://ems-cws-test.vercel.app/attendance/regularization/my/${employeeId}`,
         );
         // ✅ Sort newest first (based on createdAt or request date)
         // 🔒 STRICT last 3 months (rolling window)
@@ -172,7 +172,7 @@ function EmployeeMyRegularization({ employeeId, refreshKey }) {
 
     try {
       await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/${id}`,
+        `https://ems-cws-test.vercel.app/attendance/regularization/${id}`,
       );
       setRequests(requests.filter((req) => req._id !== id));
     } catch (err) {

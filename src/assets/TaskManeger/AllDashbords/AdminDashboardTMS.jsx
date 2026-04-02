@@ -27,12 +27,12 @@ function AdminDashboardTMS() {
 
         /* EMPLOYEES */
         const empRes = await axios.get(
-          "https://ems-cws-backend-9wgt.vercel.app/getAllEmployees",
+          "https://ems-cws-test.vercel.app/getAllEmployees",
           { headers },
         );
 
         const benchEmp = await axios.get(
-          "https://ems-cws-backend-9wgt.vercel.app/bench-employees",
+          "https://ems-cws-test.vercel.app/bench-employees",
           { headers },
         );
 
@@ -55,7 +55,7 @@ function AdminDashboardTMS() {
 
         /* PROJECTS */
         const projectRes = await axios.get(
-          "https://ems-cws-backend-9wgt.vercel.app/api/projects",
+          "https://ems-cws-test.vercel.app/api/projects",
           { headers },
         );
 
@@ -64,10 +64,10 @@ function AdminDashboardTMS() {
         setTotalProjects(projectList.length);
 
         /* TEAMS */
-        // const teamRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/api/teams", {
+        // const teamRes = await axios.get("https://ems-cws-test.vercel.app/api/teams", {
         //   headers,
         // });
-        const teamRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/api/teams", {
+        const teamRes = await axios.get("https://ems-cws-test.vercel.app/api/teams", {
           headers,
         });
         const teamList = teamRes.data?.data || [];
@@ -75,7 +75,7 @@ function AdminDashboardTMS() {
         setTotalTeams(teamList.length);
 
         /* TASKS */
-        const taskRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/task/getall", {
+        const taskRes = await axios.get("https://ems-cws-test.vercel.app/task/getall", {
           headers,
         });
         const taskList = taskRes.data || [];

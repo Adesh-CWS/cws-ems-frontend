@@ -9,7 +9,7 @@ function EmployeeCheckInOut({ employeeId }) {
   useEffect(() => {
     if (!employeeId) return;
     axios
-      .get(`https://ems-cws-backend-9wgt.vercel.app/attendance/today/${employeeId}`, {
+      .get(`https://ems-cws-test.vercel.app/attendance/today/${employeeId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -21,7 +21,7 @@ function EmployeeCheckInOut({ employeeId }) {
 
   const handleCheckIn = async () => {
     const res = await axios.post(
-      `https://ems-cws-backend-9wgt.vercel.app/attendance/checkin/${employeeId}`,
+      `https://ems-cws-test.vercel.app/attendance/checkin/${employeeId}`,
       {},
       { headers: { Authorization: `Bearer ${token}` } },
     );
@@ -30,7 +30,7 @@ function EmployeeCheckInOut({ employeeId }) {
 
   const handleCheckOut = async () => {
     const res = await axios.post(
-      `https://ems-cws-backend-9wgt.vercel.app/attendance/checkout/${employeeId}`,
+      `https://ems-cws-test.vercel.app/attendance/checkout/${employeeId}`,
       {},
       { headers: { Authorization: `Bearer ${token}` } },
     );

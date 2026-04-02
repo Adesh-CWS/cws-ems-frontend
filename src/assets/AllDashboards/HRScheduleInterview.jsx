@@ -18,7 +18,7 @@ const isToday = (date) => {
     today.getDate() === selected.getDate()
   );
 };
-const BASE_URL = "https://ems-cws-backend-9wgt.vercel.app";
+const BASE_URL = "https://ems-cws-test.vercel.app";
 
 const HRScheduleInterview = ({user}) => {
   const [showForm, setShowForm] = useState(false);
@@ -159,7 +159,7 @@ const HRScheduleInterview = ({user}) => {
   /* ---------------- FETCH EMPLOYEES ---------------- */
   useEffect(() => {
     axios
-      .get("https://ems-cws-backend-9wgt.vercel.app/allEmp")
+      .get("https://ems-cws-test.vercel.app/allEmp")
       .then((res) => {
         if (res.data.success) setEmployees(res.data.employees);
       })
@@ -169,7 +169,7 @@ const HRScheduleInterview = ({user}) => {
   /* ---------------- API FUNCTIONS ---------------- */
   const fetchAllInterviews = () => {
     axios
-      .get("https://ems-cws-backend-9wgt.vercel.app/interviews")
+      .get("https://ems-cws-test.vercel.app/interviews")
       .then((res) => {
         if (res.data.success) {
           setAllInterviews(res.data.interviews);
@@ -217,7 +217,7 @@ useEffect(() => {
 
     try {
       const res = await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/interviewsDelete/${id}`,
+        `https://ems-cws-test.vercel.app/interviewsDelete/${id}`,
       );
 
       if (res.data.success) {
@@ -257,7 +257,7 @@ useEffect(() => {
     console.log("form data",formData)
     try {
       const res = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/interviewsUpdate/${id}`,
+        `https://ems-cws-test.vercel.app/interviewsUpdate/${id}`,
         formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -519,7 +519,7 @@ if (
     }
     const token = localStorage.getItem("accessToken");
     axios
-      .post("https://ems-cws-backend-9wgt.vercel.app/schedule-interview", formPayload, {
+      .post("https://ems-cws-test.vercel.app/schedule-interview", formPayload, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`

@@ -33,7 +33,7 @@ const ActivePolls = ({ user }) => {
   useEffect(() => {
     const fetchActivePoll = async () => {
       try {
-        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/api/polls/active");
+        const res = await axios.get("https://ems-cws-test.vercel.app/api/polls/active");
         if (res.data) {
           setSavedPolls([res.data]);
         }
@@ -130,7 +130,7 @@ const ActivePolls = ({ user }) => {
   useEffect(() => {
     const fetchPreviousPolls = async () => {
       try {
-        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/api/polls/previous");
+        const res = await axios.get("https://ems-cws-test.vercel.app/api/polls/previous");
         setPreviousPolls(res.data);
       } catch (err) {
         console.error(err);
@@ -162,7 +162,7 @@ const ActivePolls = ({ user }) => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.post(
-        "https://ems-cws-backend-9wgt.vercel.app/api/polls/create",
+        "https://ems-cws-test.vercel.app/api/polls/create",
         {
           question: pollQuestion,
           description: pollDescription,
@@ -172,7 +172,7 @@ const ActivePolls = ({ user }) => {
       );
 
       const activeRes = await axios.get(
-        "https://ems-cws-backend-9wgt.vercel.app/api/polls/active"
+        "https://ems-cws-test.vercel.app/api/polls/active"
       );
 
       setSavedPolls(activeRes.data ? [activeRes.data] : []);
@@ -206,7 +206,7 @@ const ActivePolls = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const response = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/api/polls/${editingPoll._id}`,
+        `https://ems-cws-test.vercel.app/api/polls/${editingPoll._id}`,
         {
           question: editQuestion,
           description: editDescription,
@@ -286,7 +286,7 @@ const ActivePolls = ({ user }) => {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/api/polls/${pollId}`,
+        `https://ems-cws-test.vercel.app/api/polls/${pollId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -307,7 +307,7 @@ const ActivePolls = ({ user }) => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/api/polls/${pollId}/voted-members`,
+        `https://ems-cws-test.vercel.app/api/polls/${pollId}/voted-members`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -347,7 +347,7 @@ const ActivePolls = ({ user }) => {
 
 
       const res = await axios.post(
-        "https://ems-cws-backend-9wgt.vercel.app/api/polls/vote",
+        "https://ems-cws-test.vercel.app/api/polls/vote",
         { pollId, optionIndex, userId: loggedInUserId },
         { headers: { Authorization: `Bearer ${token}` } }
 

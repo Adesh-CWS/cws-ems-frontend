@@ -18,7 +18,7 @@ function ForgotPassword() {
   const userValid = async () => {
     try {
       const res = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/forgotpassword/${id}/${token}`,
+        `https://ems-cws-test.vercel.app/forgotpassword/${id}/${token}`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -50,7 +50,7 @@ function ForgotPassword() {
     }
 
     const res = await fetch(
-      `https://ems-cws-backend-9wgt.vercel.app/forgotpassword/${id}/${token}`,
+      `https://ems-cws-test.vercel.app/forgotpassword/${id}/${token}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

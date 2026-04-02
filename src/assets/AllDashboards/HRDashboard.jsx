@@ -23,7 +23,7 @@ function HRDashboard({ user }) {
       try {
         const token = localStorage.getItem("accessToken");
         const authAxios = axios.create({
-          baseURL: "https://ems-cws-backend-9wgt.vercel.app",
+          baseURL: "https://ems-cws-test.vercel.app",
           headers: { Authorization: `Bearer ${token}` },
         });
 

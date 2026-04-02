@@ -102,7 +102,7 @@ function Resignation() {
   const fetchResignations = async () => {
     try {
       const token = getToken();
-      const response = await axios.get("https://ems-cws-backend-9wgt.vercel.app/resignation", {
+      const response = await axios.get("https://ems-cws-test.vercel.app/resignation", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -174,7 +174,7 @@ function Resignation() {
       };
 
       const response = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/resignation/${selected.originalData.resignationId}`,
+        `https://ems-cws-test.vercel.app/resignation/${selected.originalData.resignationId}`,
         payload,
         {
           headers: {

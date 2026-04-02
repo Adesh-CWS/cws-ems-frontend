@@ -157,7 +157,7 @@ useEffect(() => {
 
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/soft/deleteEmployee/${id}`, {
+      await axios.delete(`https://ems-cws-test.vercel.app/soft/deleteEmployee/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -185,7 +185,7 @@ useEffect(() => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/deleteEmployee/${id}`,
+        `https://ems-cws-test.vercel.app/deleteEmployee/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -214,7 +214,7 @@ useEffect(() => {
     const fetchEmployees = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getAllEmployees", {
+        const res = await axios.get("https://ems-cws-test.vercel.app/getAllEmployees", {
           headers: { Authorization: `Bearer ${token}` },
         });
         //Geetanjali
@@ -266,7 +266,7 @@ useEffect(() => {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/users/${selectedEmployee._id}/assign-manager`,
+        `https://ems-cws-test.vercel.app/users/${selectedEmployee._id}/assign-manager`,
         { managerId: selectedManagerId },
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -315,7 +315,7 @@ useEffect(() => {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/assignMd/${selectedManagerForMd._id}`,
+        `https://ems-cws-test.vercel.app/assignMd/${selectedManagerForMd._id}`,
         { mdId: selectedMdId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

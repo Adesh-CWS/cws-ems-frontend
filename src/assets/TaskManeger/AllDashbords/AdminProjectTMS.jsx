@@ -20,7 +20,7 @@ function isWeeklyOff(date, weeklyOffs = { saturdays: [], sundayOff: true }) {
   }
   return null;
 }
-const API_URL = "https://ems-cws-backend-9wgt.vercel.app/api/projects";
+const API_URL = "https://ems-cws-test.vercel.app/api/projects";
 
 function AdminProjectTMS({ userData }) {
   const [searchInput, setSearchInput] = useState("");
@@ -108,7 +108,7 @@ function AdminProjectTMS({ userData }) {
 
   useEffect(() => {
     axios
-      .get("https://ems-cws-backend-9wgt.vercel.app/managers/list")
+      .get("https://ems-cws-test.vercel.app/managers/list")
       .then((res) => {
         console.log("Managers fetched:", res.data);
         setManagerList(res.data);
@@ -124,7 +124,7 @@ function AdminProjectTMS({ userData }) {
     const fetchWeeklyOffs = async () => {
       try {
         const res = await axios.get(
-          `https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
+          `https://ems-cws-test.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
         );
 
         const weeklyData = res.data?.data || {};
@@ -246,9 +246,9 @@ function AdminProjectTMS({ userData }) {
       let apiUrl;
       // Change API for specific statuses
       if (newStatus === "Completed") {
-        apiUrl = `https://ems-cws-backend-9wgt.vercel.app/api/projects/${projectId}/complete`;
+        apiUrl = `https://ems-cws-test.vercel.app/api/projects/${projectId}/complete`;
       } else if (newStatus === "Cancelled") {
-        apiUrl = `https://ems-cws-backend-9wgt.vercel.app/api/projects/${projectId}/cancel`;
+        apiUrl = `https://ems-cws-test.vercel.app/api/projects/${projectId}/cancel`;
       }
 
       await axios.put(apiUrl, { status: newStatus });
@@ -307,7 +307,7 @@ function AdminProjectTMS({ userData }) {
   const handleCreateSubmit = async (e) => {
     e.preventDefault();
 
-    const holidaysRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getHolidays");
+    const holidaysRes = await axios.get("https://ems-cws-test.vercel.app/getHolidays");
     const holidays = holidaysRes.data?.data || holidaysRes.data || [];
     const isHoliday = (date) =>
       holidays.some((holiday) => {
@@ -531,7 +531,7 @@ function AdminProjectTMS({ userData }) {
 
   const handleEditSave = async (e) => {
     e.preventDefault();
-    const holidaysRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getHolidays");
+    const holidaysRes = await axios.get("https://ems-cws-test.vercel.app/getHolidays");
     const holidays = holidaysRes.data?.data || holidaysRes.data || [];
 
     const isHoliday = (date) =>
@@ -692,7 +692,7 @@ function AdminProjectTMS({ userData }) {
     setCommentLoading(true);
     try {
       const response = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/project/${projectId}/comments`,
+        `https://ems-cws-test.vercel.app/project/${projectId}/comments`,
       );
       setProjectComments(response.data.comments || []);
     } catch (error) {
@@ -716,7 +716,7 @@ function AdminProjectTMS({ userData }) {
 
     try {
       const res = await axios.post(
-        `https://ems-cws-backend-9wgt.vercel.app/project/${commentModalProject._id}/comment`,
+        `https://ems-cws-test.vercel.app/project/${commentModalProject._id}/comment`,
         { comment: newComment },
         {
           headers: {
@@ -754,7 +754,7 @@ function AdminProjectTMS({ userData }) {
 
     try {
       const res = await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/project/${projectId}/comment/${commentId}`,
+        `https://ems-cws-test.vercel.app/project/${projectId}/comment/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -780,7 +780,7 @@ function AdminProjectTMS({ userData }) {
 
     try {
       const res = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/project/${projectId}/comment/${commentId}`,
+        `https://ems-cws-test.vercel.app/project/${projectId}/comment/${commentId}`,
         { comment: newText },
         {
           headers: {

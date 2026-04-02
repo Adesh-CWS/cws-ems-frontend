@@ -35,13 +35,13 @@ function EmployeeTeams({ user }) {
         
         if (user.role === "manager") {
           const res = await axios.get(
-            `https://ems-cws-backend-9wgt.vercel.app/managers/${userId}/assigned-employees`
+            `https://ems-cws-test.vercel.app/managers/${userId}/assigned-employees`
           );
           setEmployees(res.data.employees || []);
           setTeamMembers([]); 
         } else {
           const res = await axios.get(
-            `https://ems-cws-backend-9wgt.vercel.app/employee/${userId}/team-member`
+            `https://ems-cws-test.vercel.app/employee/${userId}/team-member`
           );
           
           if (res.data.success) {

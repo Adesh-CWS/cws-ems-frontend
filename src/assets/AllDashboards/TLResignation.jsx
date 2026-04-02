@@ -139,7 +139,7 @@ const fetchTLResignations = async () => {
     if (!teamLeadId) return;
 
     const response = await axios.get(
-      `https://ems-cws-backend-9wgt.vercel.app/${teamLeadId}/members`,
+      `https://ems-cws-test.vercel.app/${teamLeadId}/members`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -203,7 +203,7 @@ setFilteredRequests(sorted);
       }
 
       const response = await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/cancel/resignation/${resignationId}`,
+        `https://ems-cws-test.vercel.app/cancel/resignation/${resignationId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -245,7 +245,7 @@ setFilteredRequests(sorted);
       };
 
       const response = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/resignation/${selected.originalData.resignationId}`,
+        `https://ems-cws-test.vercel.app/resignation/${selected.originalData.resignationId}`,
         payload,
         {
           headers: {
@@ -291,7 +291,7 @@ setFilteredRequests(sorted);
       const token = getToken();
 
       const response = await axios.post(
-        "https://ems-cws-backend-9wgt.vercel.app/resignation/apply",
+        "https://ems-cws-test.vercel.app/resignation/apply",
         {
           reason: applyForm.reason,
           comments: applyForm.comments,
@@ -324,7 +324,7 @@ setFilteredRequests(sorted);
       if (!empId) return;
 
       const response = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/resignation/${empId}`,
+        `https://ems-cws-test.vercel.app/resignation/${empId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

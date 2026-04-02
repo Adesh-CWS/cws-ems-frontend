@@ -18,7 +18,7 @@ const EmployeeTaskTMS = ({ user }) => {
     if (!user?._id) return;
 
     axios
-      .get(`https://ems-cws-backend-9wgt.vercel.app/tasks/assigned/${user._id}`)
+      .get(`https://ems-cws-test.vercel.app/tasks/assigned/${user._id}`)
       .then((res) => {
         const apiTasks = res.data.tasks
           .filter((task) => task.status?.name !== "Assignment Pending") //  Filter out Assignment Pending
@@ -170,7 +170,7 @@ if (activeTask) {
       try {
         const token = localStorage.getItem("accessToken");
         if (token) {
-          const response = await axios.get("https://ems-cws-backend-9wgt.vercel.app/me", {
+          const response = await axios.get("https://ems-cws-test.vercel.app/me", {
             headers: { Authorization: `Bearer ${token}` },
           });
           setCurrentUser(response.data);
@@ -187,7 +187,7 @@ if (activeTask) {
   }, [user]);
 
   useEffect(() => {
-    fetch("https://ems-cws-backend-9wgt.vercel.app/unique")
+    fetch("https://ems-cws-test.vercel.app/unique")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -234,7 +234,7 @@ if (activeTask) {
       }
 
       const res = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/task/${selectedTask._id}/status`,
+        `https://ems-cws-test.vercel.app/task/${selectedTask._id}/status`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -375,7 +375,7 @@ if (activeTask) {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.post(
-        `https://ems-cws-backend-9wgt.vercel.app/task/${commentModalTask._id}/comment`,
+        `https://ems-cws-test.vercel.app/task/${commentModalTask._id}/comment`,
         { comment: newComment },
         {
           headers: {
@@ -436,7 +436,7 @@ if (activeTask) {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/task/${taskId}/comment/${commentId}`,
+        `https://ems-cws-test.vercel.app/task/${taskId}/comment/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -483,7 +483,7 @@ if (activeTask) {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/task/${taskId}/comment/${commentId}`,
+        `https://ems-cws-test.vercel.app/task/${taskId}/comment/${commentId}`,
         { comment: newText },
         {
           headers: {
@@ -580,7 +580,7 @@ if (activeTask) {
 
     try {
       const response = await axios.post(
-        `https://ems-cws-backend-9wgt.vercel.app/task/${taskId}/start`,
+        `https://ems-cws-test.vercel.app/task/${taskId}/start`,
       );
       if (response.data.success) {
         // setActiveTimer({
@@ -611,7 +611,7 @@ setTimerSeconds(previousSeconds); //  prevents 000 flash
   // const handleStopTimer = async (taskId) => {
   //   try {
   //     const response = await axios.post(
-  //       `https://ems-cws-backend-9wgt.vercel.app/task/${taskId}/stop`,
+  //       `https://ems-cws-test.vercel.app/task/${taskId}/stop`,
   //     );
   //     if (response.data.success) {
   //       setActiveTimer(null);
@@ -628,7 +628,7 @@ setTimerSeconds(previousSeconds); //  prevents 000 flash
   const handleStopTimer = async (taskId) => {
   try {
     const response = await axios.post(
-      `https://ems-cws-backend-9wgt.vercel.app/task/${taskId}/stop`
+      `https://ems-cws-test.vercel.app/task/${taskId}/stop`
     );
 
     if (response.data.success) {
@@ -719,7 +719,7 @@ setTimerSeconds(previousSeconds); //  prevents 000 flash
 
     try {
       const statusRes = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/task/${task._id}/status`,
+        `https://ems-cws-test.vercel.app/task/${task._id}/status`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -771,7 +771,7 @@ setTimerSeconds(previousSeconds); //  prevents 000 flash
     }
 
     try {
-      const res = await fetch(`https://ems-cws-backend-9wgt.vercel.app/task/${task._id}/status`, {
+      const res = await fetch(`https://ems-cws-test.vercel.app/task/${task._id}/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: completedStatusId }),

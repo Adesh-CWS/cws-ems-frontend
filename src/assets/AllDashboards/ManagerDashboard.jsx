@@ -52,12 +52,12 @@ function ManagerDashboard({ user }) {
   const fetchData = async () => {
     try {
       const leavesRes = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/leaves/manager/${user._id}`,
+        `https://ems-cws-test.vercel.app/leaves/manager/${user._id}`,
       );
       setLeaves(leavesRes.data);
 
       const regRes = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/regularization/manager/${user._id}`,
+        `https://ems-cws-test.vercel.app/regularization/manager/${user._id}`,
       );
 
       const today = new Date();
@@ -113,7 +113,7 @@ function ManagerDashboard({ user }) {
         setSelectedLeave((prev) => ({ ...prev, status }));
       }
 
-      await axios.put(`https://ems-cws-backend-9wgt.vercel.app/leave/${leaveId}/status`, {
+      await axios.put(`https://ems-cws-test.vercel.app/leave/${leaveId}/status`, {
         status,
         userId: user._id,
         role: "manager",
@@ -130,7 +130,7 @@ function ManagerDashboard({ user }) {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/${attendanceId}/status`,
+        `https://ems-cws-test.vercel.app/attendance/regularization/${attendanceId}/status`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } },
       );

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const API_BASE = "https://ems-cws-backend-9wgt.vercel.app";
+const API_BASE = "https://ems-cws-test.vercel.app";
 
 const STORAGE_KEY = "hr_policy";
 const ACK_KEY = "policy_ack_employee";
@@ -185,7 +185,7 @@ function HrPolicy() {
     if (statusPolicy) {
       axios
         .get(
-          `https://ems-cws-backend-9wgt.vercel.app/policy/read-employees/${statusPolicy._id}`
+          `https://ems-cws-test.vercel.app/policy/read-employees/${statusPolicy._id}`
         )
         .then((res) => {
           setReadEmployees(res.data.data);
@@ -201,7 +201,7 @@ function HrPolicy() {
         const token = localStorage.getItem("accessToken");
 
         const res = await axios.get(
-          "https://ems-cws-backend-9wgt.vercel.app/getAllEmployees",
+          "https://ems-cws-test.vercel.app/getAllEmployees",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -225,7 +225,7 @@ function HrPolicy() {
   const fetchReadEmployees = async (policyId) => {
     try {
       const res = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/policy/read-employees/${policyId}`
+        `https://ems-cws-test.vercel.app/policy/read-employees/${policyId}`
       );
 
       if (res.data.success) {

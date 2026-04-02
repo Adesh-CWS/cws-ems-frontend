@@ -71,7 +71,7 @@ function Login() {
     if (!validate()) return;
 
     try {
-      const response = await axios.post("https://ems-cws-backend-9wgt.vercel.app/login", {
+      const response = await axios.post("https://ems-cws-test.vercel.app/login", {
         email,
         password,
       });

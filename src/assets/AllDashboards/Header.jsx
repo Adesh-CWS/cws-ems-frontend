@@ -187,7 +187,7 @@ function Header({ user, handleLogout, notifications, fetchNotifications}) {
             src={
               user?.image
                 ? ` 
-https://ems-cws-backend-9wgt.vercel.app/uploads/${user.image}`
+https://ems-cws-test.vercel.app/uploads/${user.image}`
                 : "/myprofile.jpg"
             }
             alt="Profile"
@@ -209,14 +209,14 @@ https://ems-cws-backend-9wgt.vercel.app/uploads/${user.image}`
               <img
                 // src={
                 //   user?.image
-                //     ?`https://ems-cws-backend-9wgt.vercel.app/image/uploads/${user.image}`
+                //     ?`https://ems-cws-test.vercel.app/image/uploads/${user.image}`
                 //     : "/myprofile.jpg"
                 // }
                 src={
                   user?.image
                     ? user.image.startsWith("http")
                       ? user.image
-                      : `https://ems-cws-backend-9wgt.vercel.app/uploads/${user.image}`
+                      : `https://ems-cws-test.vercel.app/uploads/${user.image}`
                     : "/myprofile.jpg"
                 }
                 alt="Profile"
@@ -237,7 +237,7 @@ https://ems-cws-backend-9wgt.vercel.app/uploads/${user.image}`
                   <img
                     // src={
                     //   user?.image
-                    //     ? `https://ems-cws-backend-9wgt.vercel.app/image/uploads/${user.image}`
+                    //     ? `https://ems-cws-test.vercel.app/image/uploads/${user.image}`
                     //     : "/myprofile.jpg"
                     // }
 
@@ -245,7 +245,7 @@ https://ems-cws-backend-9wgt.vercel.app/uploads/${user.image}`
                       user?.image
                         ? user.image.startsWith("http")
                           ? user.image
-                          : `https://ems-cws-backend-9wgt.vercel.app/uploads/${user.image}`
+                          : `https://ems-cws-test.vercel.app/uploads/${user.image}`
                         : "/myprofile.jpg"
                     }
                     alt="Profile"

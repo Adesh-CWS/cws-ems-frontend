@@ -78,7 +78,7 @@ function ApplyRegularization({ user, selectedRecord }) {
   const fetchCounts = async () => {
     try {
       const res = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/my/${user._id}`,
+        `https://ems-cws-test.vercel.app/attendance/regularization/my/${user._id}`,
       );
 
       const requests = res.data || [];
@@ -139,7 +139,7 @@ function ApplyRegularization({ user, selectedRecord }) {
     const fetchWeeklyOffs = async () => {
       try {
         const res = await axios.get(
-          `https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
+          `https://ems-cws-test.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
         );
 
         const weeklyData = res.data?.data || res.data || {};
@@ -165,7 +165,7 @@ function ApplyRegularization({ user, selectedRecord }) {
     const fetchAttendance = async () => {
       try {
         const res = await axios.get(
-          `https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/my/${user._id}`,
+          `https://ems-cws-test.vercel.app/attendance/regularization/my/${user._id}`,
         );
         setAttendance(res.data);
         console.log(res.data);
@@ -415,7 +415,7 @@ function ApplyRegularization({ user, selectedRecord }) {
 
       // 1️⃣ Fetch existing leaves for the employee
       const leaveRes = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/leave/my/${user._id}`,
+        `https://ems-cws-test.vercel.app/leave/my/${user._id}`,
       );
       const leaves = leaveRes.data || [];
 
@@ -437,7 +437,7 @@ function ApplyRegularization({ user, selectedRecord }) {
       }
       // 2️⃣ Fetch holidays dynamically
       const currentYear = new Date().getFullYear();
-      const holidaysRes = await axios.get("https://ems-cws-backend-9wgt.vercel.app/getHolidays");
+      const holidaysRes = await axios.get("https://ems-cws-test.vercel.app/getHolidays");
       const holidays = holidaysRes.data.filter(
         (h) => new Date(h.date).getFullYear() === currentYear,
       );
@@ -459,7 +459,7 @@ function ApplyRegularization({ user, selectedRecord }) {
 
       // 3 Fetch existing regularization requests (✅ fixed link)
       const regRes = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/my/${user._id}`,
+        `https://ems-cws-test.vercel.app/attendance/regularization/my/${user._id}`,
       );
       const regularizations = regRes.data || [];
 
@@ -483,7 +483,7 @@ function ApplyRegularization({ user, selectedRecord }) {
       // 3️⃣ If all checks pass → Submit regularization request
       const token = localStorage.getItem("accessToken");
       const authAxios = axios.create({
-        baseURL: "https://ems-cws-backend-9wgt.vercel.app",
+        baseURL: "https://ems-cws-test.vercel.app",
         headers: { Authorization: `Bearer ${token}` },
       });
 

@@ -74,7 +74,7 @@ function AdminCareer({ user }) {
 
   const fetchJobs = async () => {
     try {
-      const res = await fetch("https://ems-cws-backend-9wgt.vercel.app/api/jobs/");
+      const res = await fetch("https://ems-cws-test.vercel.app/api/jobs/");
       const data = await res.json();
       setJobs(data);
     } catch (err) {
@@ -219,14 +219,14 @@ function AdminCareer({ user }) {
       let res;
       if (editJobId) {
         res = await axios.put(
-          `https://ems-cws-backend-9wgt.vercel.app/api/jobs/${editJobId}`,
+          `https://ems-cws-test.vercel.app/api/jobs/${editJobId}`,
           payload,
           { headers: { "Content-Type": "application/json" } },
         );
         await fetchJobs();
       } else {
         const res = await axios.post(
-          "https://ems-cws-backend-9wgt.vercel.app/api/jobs/",
+          "https://ems-cws-test.vercel.app/api/jobs/",
           payload,
           { headers: { "Content-Type": "application/json" } },
         );
@@ -309,7 +309,7 @@ function AdminCareer({ user }) {
     if (e) e.stopPropagation(); //Added by Rutuja
     if (!window.confirm("Are you sure you want to delete this job?")) return;
     try {
-      await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/api/jobs/${id}`);
+      await axios.delete(`https://ems-cws-test.vercel.app/api/jobs/${id}`);
       setJobs((prev) => prev.filter((t) => t._id !== id));
       setFilteredJobs((prev) => prev.filter((t) => t._id !== id));
 
@@ -383,7 +383,7 @@ function AdminCareer({ user }) {
   const getApplicantsInfo = async (jobId) => {
     try {
       setLoadingApplicants(true);
-      const res = await fetch(`https://ems-cws-backend-9wgt.vercel.app/api/apply/job/${jobId}`, {
+      const res = await fetch(`https://ems-cws-test.vercel.app/api/apply/job/${jobId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -455,7 +455,7 @@ function AdminCareer({ user }) {
   console.log("applicants ", applicants);
   async function handleStatusChange(applicationId, newStatus) {
     try {
-      await axios.put(`https://ems-cws-backend-9wgt.vercel.app/api/apply/${applicationId}`, {
+      await axios.put(`https://ems-cws-test.vercel.app/api/apply/${applicationId}`, {
         status: newStatus,
       });
 

@@ -13,7 +13,7 @@ const TaskNotification = ({ userId }) => {
 
     try {
       const res = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/task-notifications/${userId}`,
+        `https://ems-cws-test.vercel.app/task-notifications/${userId}`,
       );
 
       const notificationsArray = res.data;
@@ -35,7 +35,7 @@ const TaskNotification = ({ userId }) => {
 
   const handleNotificationClick = async (n) => {
     try {
-      await axios.put(`https://ems-cws-backend-9wgt.vercel.app/tasknotifications/${n._id}/read`);
+      await axios.put(`https://ems-cws-test.vercel.app/tasknotifications/${n._id}/read`);
 
       setNotifications((prev) =>
         prev.map((item) =>

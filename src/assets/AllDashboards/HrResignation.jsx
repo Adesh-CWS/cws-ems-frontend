@@ -143,7 +143,7 @@ useEffect(() => {
       }
   
       const response = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/resignation`,
+        `https://ems-cws-test.vercel.app/resignation`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -211,7 +211,7 @@ useEffect(() => {
       }
 
       const response = await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/cancel/resignation/${resignationId}`,
+        `https://ems-cws-test.vercel.app/cancel/resignation/${resignationId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -253,7 +253,7 @@ useEffect(() => {
       };
 
       const response = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/resignation/${selected.originalData.resignationId}`,
+        `https://ems-cws-test.vercel.app/resignation/${selected.originalData.resignationId}`,
         payload,
         {
           headers: {
@@ -299,7 +299,7 @@ useEffect(() => {
       const token = getToken();
 
       const response = await axios.post(
-        "https://ems-cws-backend-9wgt.vercel.app/resignation/apply",
+        "https://ems-cws-test.vercel.app/resignation/apply",
         {
           reason: applyForm.reason,
           comments: applyForm.comments,
@@ -332,7 +332,7 @@ useEffect(() => {
       if (!empId) return;
 
       const response = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/resignation/${empId}`,
+        `https://ems-cws-test.vercel.app/resignation/${empId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

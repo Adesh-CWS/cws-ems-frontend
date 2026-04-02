@@ -143,7 +143,7 @@ const EmployeeCareer = ({ user }) => {
 
   const fetchJobs = async () => {
     try {
-      const res = await fetch("https://ems-cws-backend-9wgt.vercel.app/api/jobs/");
+      const res = await fetch("https://ems-cws-test.vercel.app/api/jobs/");
       const data = await res.json();
       setJobs(data);
     } catch (err) {
@@ -154,7 +154,7 @@ const EmployeeCareer = ({ user }) => {
   const fetchAppliedJobs = async () => {
     try {
       const res = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/api/apply/employee/${user._id}?applicantType=inhouse`,
+        `https://ems-cws-test.vercel.app/api/apply/employee/${user._id}?applicantType=inhouse`,
       );
 
       if (!res.ok) throw new Error("Failed to fetch applied jobs");
@@ -170,7 +170,7 @@ const EmployeeCareer = ({ user }) => {
   const fetchRefferedJobs = async () => {
     try {
       const res = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/api/apply/employee/${user._id}?applicantType=referral`,
+        `https://ems-cws-test.vercel.app/api/apply/employee/${user._id}?applicantType=referral`,
       );
 
       if (!res.ok) throw new Error("Failed to fetch applied jobs");
@@ -184,7 +184,7 @@ const EmployeeCareer = ({ user }) => {
     }
   };
   const createApplication = (formData) =>
-    axios.post("https://ems-cws-backend-9wgt.vercel.app/api/apply", formData, {
+    axios.post("https://ems-cws-test.vercel.app/api/apply", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
 

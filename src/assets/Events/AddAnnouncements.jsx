@@ -141,7 +141,7 @@ const modalRef = useRef(null);
       formData.append("image", image);
 
       const response = await axios.post(
-        "https://ems-cws-backend-9wgt.vercel.app/announcements/",
+        "https://ems-cws-test.vercel.app/announcements/",
         formData,
         {
           headers: {

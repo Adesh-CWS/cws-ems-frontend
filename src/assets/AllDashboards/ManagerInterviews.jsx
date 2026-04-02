@@ -152,7 +152,7 @@ const ManagerInterviews = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const res = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/interviews/manager/${managerId}`,
+        `https://ems-cws-test.vercel.app/interviews/manager/${managerId}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -181,7 +181,7 @@ const ManagerInterviews = () => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/interviews/managerUpdate/${selected._id}`,
+        `https://ems-cws-test.vercel.app/interviews/managerUpdate/${selected._id}`,
         {
           method: "PUT",
           body: JSON.stringify({

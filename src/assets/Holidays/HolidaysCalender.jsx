@@ -9,7 +9,7 @@ function HolidaysCalendar() {
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
-        const res = await axios.get("https://ems-cws-backend-9wgt.vercel.app/holidays");
+        const res = await axios.get("https://ems-cws-test.vercel.app/holidays");
         // Map holidays to FullCalendar event format
         const events = res.data.map(h => ({
           title: h.name,

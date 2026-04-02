@@ -165,7 +165,7 @@ const AdminTasklog = ({ user }) => {
         const dateStr = d.toISOString().split("T")[0];
 
         const res = await axios.get(
-          `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/daily-workload?date=${dateStr}`,
+          `https://ems-cws-test.vercel.app/api/tasklogs/daily-workload?date=${dateStr}`,
           { headers: { Authorization: `Bearer ${token}` } },
         );
 
@@ -228,7 +228,7 @@ const AdminTasklog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/daily-workload?date=${selectedDate}`,
+        `https://ems-cws-test.vercel.app/api/tasklogs/daily-workload?date=${selectedDate}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -250,14 +250,14 @@ const AdminTasklog = ({ user }) => {
       let url = "";
 
       if (workloadDate) {
-        url = `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/daily-workload?date=${workloadDate}`;
+        url = `https://ems-cws-test.vercel.app/api/tasklogs/daily-workload?date=${workloadDate}`;
       } else if (workloadWeek) {
         const weekStartDate = getStartDateOfWeek(workloadWeek);
-        url = `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/workload/weekly?date=${weekStartDate}`;
+        url = `https://ems-cws-test.vercel.app/api/tasklogs/workload/weekly?date=${weekStartDate}`;
       } else if (workloadMonth) {
         // Monthly API
         const [year, month] = workloadMonth.split("-");
-        url = `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
+        url = `https://ems-cws-test.vercel.app/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
       } else {
         console.warn("No filter selected");
         return;
@@ -406,7 +406,7 @@ const AdminTasklog = ({ user }) => {
   }, []);
   const fetchLogs = async () => {
     try {
-      const logRes = await fetch(`https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/`);
+      const logRes = await fetch(`https://ems-cws-test.vercel.app/api/tasklogs/`);
       const logsData = await logRes.json();
       setLogs(logsData);
     } catch (err) {

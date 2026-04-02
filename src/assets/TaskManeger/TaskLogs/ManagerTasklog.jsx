@@ -212,7 +212,7 @@ const ManagerTasklog = ({ user }) => {
 
         try {
           const res = await axios.get(
-            `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/daily-workload?date=${dateStr}`,
+            `https://ems-cws-test.vercel.app/api/tasklogs/daily-workload?date=${dateStr}`,
             { headers: { Authorization: `Bearer ${token}` } },
           );
 
@@ -280,7 +280,7 @@ const ManagerTasklog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/daily-workload?date=${selectedDate}`,
+        `https://ems-cws-test.vercel.app/api/tasklogs/daily-workload?date=${selectedDate}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -301,13 +301,13 @@ const ManagerTasklog = ({ user }) => {
       let url = "";
 
       if (workloadDate) {
-        url = `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/daily-workload?date=${workloadDate}`;
+        url = `https://ems-cws-test.vercel.app/api/tasklogs/daily-workload?date=${workloadDate}`;
       } else if (workloadWeek) {
         const weekStartDate = getStartDateOfWeek(workloadWeek);
-        url = `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/workload/weekly?date=${weekStartDate}`;
+        url = `https://ems-cws-test.vercel.app/api/tasklogs/workload/weekly?date=${weekStartDate}`;
       } else if (workloadMonth) {
         const [year, month] = workloadMonth.split("-");
-        url = `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
+        url = `https://ems-cws-test.vercel.app/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
       } else {
         console.warn("No filter selected");
         return;
@@ -380,7 +380,7 @@ const ManagerTasklog = ({ user }) => {
       console.log("Fetching logs for manager ID:", user._id);
       
       const response = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/manager/${user._id}/logs`,
+        `https://ems-cws-test.vercel.app/api/tasklogs/manager/${user._id}/logs`,
         {
           headers: {
             'Authorization': `Bearer ${token}`,

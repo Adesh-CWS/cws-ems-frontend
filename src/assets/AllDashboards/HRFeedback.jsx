@@ -68,7 +68,7 @@ const HRFeedback = () => {
       if (!token) return;
 
       const response = await axios.get(
-        "https://ems-cws-backend-9wgt.vercel.app/getAllEmployees",
+        "https://ems-cws-test.vercel.app/getAllEmployees",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -96,7 +96,7 @@ const HRFeedback = () => {
       }
 
       const response = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/feedback/employee/${currentUser._id}`,
+        `https://ems-cws-test.vercel.app/feedback/employee/${currentUser._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -192,7 +192,7 @@ const HRFeedback = () => {
       }
 
       const response = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/feedback/view/${feedbackId}`,
+        `https://ems-cws-test.vercel.app/feedback/view/${feedbackId}`,
         {},
         {
           headers: {
@@ -431,7 +431,7 @@ const HRFeedback = () => {
 
       if (editId) {
         response = await axios.put(
-          `https://ems-cws-backend-9wgt.vercel.app/feedback/edit/${editId}`,
+          `https://ems-cws-test.vercel.app/feedback/edit/${editId}`,
           {
             title: formData.title,
             message: formData.message,
@@ -445,7 +445,7 @@ const HRFeedback = () => {
         );
       } else {
         response = await axios.post(
-          "https://ems-cws-backend-9wgt.vercel.app/feedback/send",
+          "https://ems-cws-test.vercel.app/feedback/send",
           {
             receiverId: formData.receiverId,
             title: formData.title,
@@ -507,7 +507,7 @@ const HRFeedback = () => {
     try {
       const token = localStorage.getItem("accessToken");
       if (token) {
-        await axios.delete(`https://ems-cws-backend-9wgt.vercel.app/feedback/delete/${id}`, {
+        await axios.delete(`https://ems-cws-test.vercel.app/feedback/delete/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

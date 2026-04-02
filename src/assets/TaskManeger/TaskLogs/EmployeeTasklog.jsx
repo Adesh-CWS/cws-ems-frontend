@@ -204,7 +204,7 @@ const EmployeeTasklog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const logRes = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/employee/${user._id}`,
+        `https://ems-cws-test.vercel.app/api/tasklogs/employee/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -215,7 +215,7 @@ const EmployeeTasklog = ({ user }) => {
       const logsData = await logRes.json();
 
       const taskRes = await fetch(
-        `https://ems-cws-backend-9wgt.vercel.app/tasks/assigned/${user._id}`,
+        `https://ems-cws-test.vercel.app/tasks/assigned/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -395,7 +395,7 @@ const EmployeeTasklog = ({ user }) => {
   //       let res;
   //       if (editIndex !== null) {
   //         res = await axios.put(
-  //           `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/${editIndex}`,
+  //           `https://ems-cws-test.vercel.app/api/tasklogs/${editIndex}`,
   //           payload,
   //           {
   //           headers: {
@@ -407,7 +407,7 @@ const EmployeeTasklog = ({ user }) => {
   //          await fetchLogs();
   //       } else {
   //         const res = await axios.post(
-  //           "https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/",
+  //           "https://ems-cws-test.vercel.app/api/tasklogs/",
   //           payload,
   //           {
   //           headers: {
@@ -474,8 +474,8 @@ const EmployeeTasklog = ({ user }) => {
 
       const endpoint =
         editIndex !== null
-          ? `https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/${editIndex}`
-          : "https://ems-cws-backend-9wgt.vercel.app/api/tasklogs/";
+          ? `https://ems-cws-test.vercel.app/api/tasklogs/${editIndex}`
+          : "https://ems-cws-test.vercel.app/api/tasklogs/";
 
       const method = editIndex !== null ? "PUT" : "POST";
 

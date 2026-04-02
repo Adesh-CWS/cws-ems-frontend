@@ -75,7 +75,7 @@ function EditAnnouncementForm({ data, onClose, onUpdate }) {
   //   if (image) formData.append("image", image);
 
   //   const res = await axios.put(
-  //     `https://ems-cws-backend-9wgt.vercel.app/announcements/${data._id}`,
+  //     `https://ems-cws-test.vercel.app/announcements/${data._id}`,
   //     formData,
   //     { headers: { Authorization: `Bearer ${token}` } }
   //   );
@@ -95,7 +95,7 @@ function EditAnnouncementForm({ data, onClose, onUpdate }) {
       if (image) formData.append("image", image);
 
       const res = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/announcements/${data._id}`,
+        `https://ems-cws-test.vercel.app/announcements/${data._id}`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } },
       );

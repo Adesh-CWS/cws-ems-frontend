@@ -21,11 +21,11 @@
 //     const fetchData = async () => {
 //       try {
 //         const [attRes, leaveRes, weeklyRes, holidayRes, regRes] = await Promise.all([
-//           axios.get(`https://ems-cws-backend-9wgt.vercel.app/attendance/${employeeId}`),
-//           axios.get(`https://ems-cws-backend-9wgt.vercel.app/leave/my/${employeeId}`),
-//           axios.get(`https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`),
-//           axios.get(`https://ems-cws-backend-9wgt.vercel.app/getHolidays`),
-//           axios.get(`https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/my/${employeeId}`),
+//           axios.get(`https://ems-cws-test.vercel.app/attendance/${employeeId}`),
+//           axios.get(`https://ems-cws-test.vercel.app/leave/my/${employeeId}`),
+//           axios.get(`https://ems-cws-test.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`),
+//           axios.get(`https://ems-cws-test.vercel.app/getHolidays`),
+//           axios.get(`https://ems-cws-test.vercel.app/attendance/regularization/my/${employeeId}`),
 //         ]);
 
 //         setWeeklyOff(weeklyRes.data.data?.saturdays || []);
@@ -250,14 +250,14 @@ function MyAttendanceCalendar({ employeeId }) {
       try {
         const [attRes, leaveRes, weeklyRes, holidayRes, regRes] =
           await Promise.all([
-            axios.get(`https://ems-cws-backend-9wgt.vercel.app/attendance/${employeeId}`),
-            axios.get(`https://ems-cws-backend-9wgt.vercel.app/leave/my/${employeeId}`),
+            axios.get(`https://ems-cws-test.vercel.app/attendance/${employeeId}`),
+            axios.get(`https://ems-cws-test.vercel.app/leave/my/${employeeId}`),
             axios.get(
-              `https://ems-cws-backend-9wgt.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
+              `https://ems-cws-test.vercel.app/admin/weeklyoff/${new Date().getFullYear()}`,
             ),
-            axios.get(`https://ems-cws-backend-9wgt.vercel.app/getHolidays`),
+            axios.get(`https://ems-cws-test.vercel.app/getHolidays`),
             axios.get(
-              `https://ems-cws-backend-9wgt.vercel.app/attendance/regularization/my/${employeeId}`,
+              `https://ems-cws-test.vercel.app/attendance/regularization/my/${employeeId}`,
             ),
           ]);
         setWeeklyOff(weeklyRes.data.data?.saturdays || []);

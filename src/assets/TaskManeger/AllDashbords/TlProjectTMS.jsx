@@ -46,7 +46,7 @@ function TlProjectTMS({ user }) {
 
   useEffect(() => {
     axios
-      .get("https://ems-cws-backend-9wgt.vercel.app/managers/list")
+      .get("https://ems-cws-test.vercel.app/managers/list")
       .then((res) => {
         console.log("Managers fetched:", res.data);
         setManagerList(res.data);
@@ -58,7 +58,7 @@ function TlProjectTMS({ user }) {
 
   const fetchTLProjects = async () => {
     try {
-      const res = await axios.get(`https://ems-cws-backend-9wgt.vercel.app/${user._id}/projects`);
+      const res = await axios.get(`https://ems-cws-test.vercel.app/${user._id}/projects`);
       
       const transformedProjects = res.data.projects.map(item => ({
         _id: item.project._id,
@@ -321,7 +321,7 @@ useEffect(() => {
     setCommentLoading(true);
     try {
       const response = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/project/${projectId}/comments`,
+        `https://ems-cws-test.vercel.app/project/${projectId}/comments`,
       );
       setProjectComments(response.data.comments || []);
     } catch (error) {
@@ -345,7 +345,7 @@ useEffect(() => {
 
     try {
       const res = await axios.post(
-        `https://ems-cws-backend-9wgt.vercel.app/project/${commentModalProject._id}/comment`,
+        `https://ems-cws-test.vercel.app/project/${commentModalProject._id}/comment`,
         { comment: newComment },
         {
           headers: {
@@ -385,7 +385,7 @@ useEffect(() => {
 
     try {
       const res = await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/project/${projectId}/comment/${commentId}`,
+        `https://ems-cws-test.vercel.app/project/${projectId}/comment/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -411,7 +411,7 @@ useEffect(() => {
 
     try {
       const res = await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/project/${projectId}/comment/${commentId}`,
+        `https://ems-cws-test.vercel.app/project/${projectId}/comment/${commentId}`,
         { comment: newText },
         {
           headers: {

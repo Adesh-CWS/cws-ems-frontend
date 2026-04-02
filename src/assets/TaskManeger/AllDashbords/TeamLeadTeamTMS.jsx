@@ -81,11 +81,11 @@ const TeamLeadTeamTMS = ({ user }) => {
 
       Promise.all([
         // Fetch teams data
-        fetch(`https://ems-cws-backend-9wgt.vercel.app/api/teams/user/${user._id}/teams`)
+        fetch(`https://ems-cws-test.vercel.app/api/teams/user/${user._id}/teams`)
           .then((res) => res.json()),
         
         // Fetch members count for this team lead
-        fetch(`https://ems-cws-backend-9wgt.vercel.app/${user._id}/members`)
+        fetch(`https://ems-cws-test.vercel.app/${user._id}/members`)
           .then((res) => res.json())
           .catch(err => {
             console.warn("Members API failed:", err);
@@ -93,7 +93,7 @@ const TeamLeadTeamTMS = ({ user }) => {
           }),
         
         // Fetch departments
-        axios.get("https://ems-cws-backend-9wgt.vercel.app/getAllDepartments"),
+        axios.get("https://ems-cws-test.vercel.app/getAllDepartments"),
       ])
         .then(([teamRes, membersRes, deptRes]) => {
           if (!teamRes.success) return;

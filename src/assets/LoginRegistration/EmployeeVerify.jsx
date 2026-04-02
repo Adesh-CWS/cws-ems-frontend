@@ -17,7 +17,7 @@
 //     const verifyToken = async () => {
 //       try {
 //         const res = await axios.get(
-//           `https://ems-cws-backend-9wgt.vercel.app/employee/verify/${id}/${token}`
+//           `https://ems-cws-test.vercel.app/employee/verify/${id}/${token}`
 //         );
 //         if (res.data.success) setValidLink(true);
 //       } catch (err) {
@@ -38,7 +38,7 @@
 
 //     try {
 //       const res = await axios.post(
-//         `https://ems-cws-backend-9wgt.vercel.app/employee/set-password`,
+//         `https://ems-cws-test.vercel.app/employee/set-password`,
 //         { id, token, password }
 //       );
 //       setMessage(res.data.message);
@@ -124,7 +124,7 @@ const EmployeeVerify = () => {
     const verifyToken = async () => {
       try {
         const res = await axios.get(
-          `https://ems-cws-backend-9wgt.vercel.app/employee/verify/${id}/${token}`,
+          `https://ems-cws-test.vercel.app/employee/verify/${id}/${token}`,
         );
         if (res.data.success) setValidLink(true);
       } catch (err) {
@@ -145,7 +145,7 @@ const EmployeeVerify = () => {
 
     try {
       const res = await axios.post(
-        `https://ems-cws-backend-9wgt.vercel.app/employee/set-password`,
+        `https://ems-cws-test.vercel.app/employee/set-password`,
         { id, token, password },
       );
       setMessage(res.data.message);

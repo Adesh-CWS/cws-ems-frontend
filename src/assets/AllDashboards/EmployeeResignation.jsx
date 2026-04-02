@@ -109,7 +109,7 @@ function EmployeeResignation({ user }) {
 
   async function fetchUser() {
     try {
-      const response = await axios.get("https://ems-cws-backend-9wgt.vercel.app/me", {
+      const response = await axios.get("https://ems-cws-test.vercel.app/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       return response.data;
@@ -125,7 +125,7 @@ function EmployeeResignation({ user }) {
       if (!userData) return;
 
       const response = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/emp/info/${userData.employeeId}`,
+        `https://ems-cws-test.vercel.app/emp/info/${userData.employeeId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -150,7 +150,7 @@ function EmployeeResignation({ user }) {
       if (!userData) return;
 
       const response = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/resignation/${userData.employeeId}`,
+        `https://ems-cws-test.vercel.app/resignation/${userData.employeeId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -208,7 +208,7 @@ function EmployeeResignation({ user }) {
       };
 
       const response = await axios.post(
-        "https://ems-cws-backend-9wgt.vercel.app/resignation/apply",
+        "https://ems-cws-test.vercel.app/resignation/apply",
         payload,
         {
           headers: {
@@ -240,7 +240,7 @@ function EmployeeResignation({ user }) {
 
     try {
       const response = await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/cancel/resignation/${resignationId}`,
+        `https://ems-cws-test.vercel.app/cancel/resignation/${resignationId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },

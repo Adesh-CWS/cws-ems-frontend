@@ -30,7 +30,7 @@ function EmployeeProfileForAdmin({ employee: stateEmployee }) {
         try {
           const token = localStorage.getItem("accessToken");
           const res = await axios.get(
-            `https://ems-cws-backend-9wgt.vercel.app/getEmployee/${empId}`,
+            `https://ems-cws-test.vercel.app/getEmployee/${empId}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             },
@@ -378,7 +378,7 @@ function EmployeeProfileForAdmin({ employee: stateEmployee }) {
       });
 
       await axios.put(
-        `https://ems-cws-backend-9wgt.vercel.app/employees/${employee._id || empId}`,
+        `https://ems-cws-test.vercel.app/employees/${employee._id || empId}`,
         data,
         {
           headers: {
@@ -392,7 +392,7 @@ function EmployeeProfileForAdmin({ employee: stateEmployee }) {
       setIsEditing(false);
 
       const updated = await axios.get(
-        `https://ems-cws-backend-9wgt.vercel.app/getEmployee/${employee._id || empId}`,
+        `https://ems-cws-test.vercel.app/getEmployee/${employee._id || empId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -482,7 +482,7 @@ function EmployeeProfileForAdmin({ employee: stateEmployee }) {
 
     const url = fileName.startsWith("http")
       ? fileName
-      : `https://ems-cws-backend-9wgt.vercel.app/uploads/${fileName}`;
+      : `https://ems-cws-test.vercel.app/uploads/${fileName}`;
 
     const fileType = getFileType(fileName);
 
@@ -521,7 +521,7 @@ function EmployeeProfileForAdmin({ employee: stateEmployee }) {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.delete(
-        `https://ems-cws-backend-9wgt.vercel.app/deleteEmployee/${id}`,
+        `https://ems-cws-test.vercel.app/deleteEmployee/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -573,7 +573,7 @@ function EmployeeProfileForAdmin({ employee: stateEmployee }) {
                   src={
                     employee?.image?.startsWith("http")
                       ? employee.image
-                      : `https://ems-cws-backend-9wgt.vercel.app/uploads/${employee.image}`
+                      : `https://ems-cws-test.vercel.app/uploads/${employee.image}`
                   }
                   alt="Profile Preview"
                   style={{
@@ -1110,7 +1110,7 @@ function EmployeeProfileForAdmin({ employee: stateEmployee }) {
                       href={
                         employee[field]?.startsWith("http")
                           ? employee[field]
-                          : `https://ems-cws-backend-9wgt.vercel.app/uploads/${employee[field]}`
+                          : `https://ems-cws-test.vercel.app/uploads/${employee[field]}`
                       }
                       target="_blank"
                       rel="noopener noreferrer"
@@ -1141,7 +1141,7 @@ function EmployeeProfileForAdmin({ employee: stateEmployee }) {
 
                 ) : employee.bankDetails?.passbookPdf ? (
                   <a
-                    href={`https://ems-cws-backend-9wgt.vercel.app/uploads/${employee.bankDetails.passbookPdf}`}
+                    href={`https://ems-cws-test.vercel.app/uploads/${employee.bankDetails.passbookPdf}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
