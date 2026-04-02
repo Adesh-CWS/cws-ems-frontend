@@ -1,0 +1,318 @@
+/* Main Header Wrapper */
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+   margin-bottom: 20px; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 10px 20px;
+}
+
+/* Left Side - User Info */
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-greeting {
+  color: #3A5FBE;
+  font-size: 20px;
+  margin-left: 50px;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.user-role {
+  font-size: 14px;
+  color: #3A5FBE;
+  margin-left: 50px;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+/* Right Side - Actions Group */
+.header-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Profile Image */
+.profile-img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Employee ID */
+.employee-id-text {
+  font-weight: 600;
+}
+
+/* Company Logo */
+.company-logo-img {
+  width: 110px;
+  height: 50px;
+  margin-right: 20px;
+}
+
+/* Hover Effects */
+.profile-img:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.company-logo-img:hover {
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+/*  TABLET RESPONSIVE (768px - 1024px)  */
+@media (max-width: 1024px) {
+  .user-greeting {
+    font-size: 18px;
+    margin-left: 30px;
+  }
+
+  .user-role {
+    font-size: 13px;
+    margin-left: 30px;
+  }
+
+  .company-logo-img {
+    width: 90px;
+    height: 42px;
+    margin-right: 15px;
+  }
+
+  .header-actions-group {
+    gap: 0.75rem;
+  }
+}
+
+/* MOBILE RESPONSIVE (up to 768px) */
+/* MOBILE-ONLY CHANGES: Logo to top-right, everything in one row */
+@media (max-width: 768px) {
+  .header-wrapper {
+    position: relative; 
+    flex-direction: row; 
+    padding: 50px 10px 12px 10px; 
+    gap: 10px;
+  }
+
+  .company-logo-img {
+    position: absolute !important;
+    top: 8px !important;
+    right: 10px !important;
+    width: 80px !important;
+    height: 38px !important;
+    margin-right: 0 !important;
+  }
+
+  /* User Info - Stays on left, smaller */
+  .user-info {
+    flex-shrink: 0;
+  }
+
+  .user-greeting {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
+  .user-role {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  /* Header Actions - Stays on right, compact */
+  .header-actions-group {
+    gap: 8px;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  .profile-img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .employee-id-text {
+    font-size: 12px;
+  }
+
+  .header-actions-group .btn {
+    padding: 4px;
+  }
+
+  .header-actions-group .btn i {
+    font-size: 1rem !important;
+  }
+}
+
+/*  SMALL MOBILE (up to 480px)  */
+@media (max-width: 480px) {
+  .header-wrapper {
+    padding: 45px 8px 10px 8px;
+  }
+
+  .user-greeting {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  .user-role {
+    font-size: 11px;
+    margin-left: 5px;
+  }
+
+  .header-actions-group {
+    gap: 6px;
+  }
+
+  .company-logo-img {
+    width: 70px !important;
+    height: 34px !important;
+    top: 6px !important;
+    right: 8px !important;
+  }
+
+  .profile-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .employee-id-text {
+    font-size: 11px;
+  }
+}
+
+/*  EXTRA SMALL MOBILE (up to 360px)  */
+@media (max-width: 360px) {
+  .user-greeting {
+    font-size: 13px;
+  }
+
+  .user-role {
+    font-size: 10px;
+  }
+
+  .header-actions-group {
+    gap: 5px;
+  }
+
+  .company-logo-img {
+    width: 60px !important;
+    height: 30px !important;
+    top: 5px !important;
+    right: 5px !important;
+  }
+
+  .profile-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .employee-id-text {
+    font-size: 10px;
+  }
+
+  .header-actions-group .btn {
+    padding: 3px;
+  }
+}
+/* Profile dropdown container */
+.profile-dropdown-menu {
+  padding: 12px !important;
+  border-radius: 20px;
+  margin-top: 8px;
+  overflow: visible !important;
+  box-sizing: border-box;
+  position: absolute !important;
+  z-index: 9999 !important;
+}
+
+/* Profile image hover effect */
+.profile-dropdown .profile-img:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+/* Dropdown items styling */
+.profile-dropdown-menu .dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin: 6px 12px;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+  color: #212529;
+  border: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: transparent !important;
+  background-image: none !important;
+  width: calc(100% - 24px);
+}
+
+/* Blue hover + white text */
+.profile-dropdown-menu .dropdown-item:hover,
+.profile-dropdown-menu .dropdown-item:active {
+  background-color: #3A5FBE !important;
+  background-image: none !important;
+  color: #fff !important;
+}
+
+/* Remove blue after click */
+.profile-dropdown-menu .dropdown-item:focus {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #212529 !important;
+}
+
+/* Ensure icons are ALWAYS visible */
+.profile-dropdown-menu .dropdown-item i {
+  color: #212529 !important;
+  margin-right: 8px;
+  font-size: 16px;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Text styling */
+.profile-dropdown-menu .dropdown-item span {
+  color: #212529 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Turn white on hover/tap */
+.profile-dropdown-menu .dropdown-item:hover i,
+.profile-dropdown-menu .dropdown-item:active i {
+  color: #fff !important;
+}
+
+.profile-dropdown-menu .dropdown-item:hover span,
+.profile-dropdown-menu .dropdown-item:active span {
+  color: #fff !important;
+}
+
+/* Keep default color on focus (after click) */
+.profile-dropdown-menu .dropdown-item:focus i,
+.profile-dropdown-menu .dropdown-item:focus span {
+  color: #212529 !important;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .profile-dropdown-menu {
+    position: absolute !important;
+    transform: none !important;
+    right: 0 !important;
+    left: auto !important;
+    min-width: 250px !important;
+    top: 35px !important;
+  }
+}

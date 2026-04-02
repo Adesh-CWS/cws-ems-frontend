@@ -1,0 +1,261 @@
+/* .calendar-container .react-calendar .react-calendar__navigation {
+  margin-bottom: 0px;
+  height: 30px;
+}
+.react-calendar__tile {
+  min-height: 2px !important; 
+}
+.react-calendar_month-viewdays_day {
+  min-height: 0 !important;
+} */
+
+
+
+.present-day {
+  background: #4caf50 !important; /* green */
+  color: white !important;
+  border-radius: 50%;
+ 
+}
+
+/* Work From Home */
+.wfh-day {
+  background: #ff9800 !important; /* orange */
+  color: white !important;
+  border-radius: 50%;
+}
+
+/* Half Day */
+.halfday-day {
+  background: #2196f3 !important; /* blue */
+  color: white !important;
+  border-radius: 50%;
+}
+
+/* Leave */
+.leave-day {
+  background: #dc3545 !important; /* purple */
+  color: white !important;
+  border-radius: 50%;
+}
+
+/* Weekends */
+.weekend-day {
+  background: #e0e0e0 !important; /* light gray */
+  color: #555 !important;
+  border-radius: 50%;
+}
+
+/* Legend */
+.legend-box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.legend-box.present { background: #4caf50; }
+.legend-box.wfh { background: #ff9800; }
+.legend-box.halfday { background: #2196f3; }
+.legend-box.leave { background: #dc3545; }
+.legend-box.weekend { background: #e0e0e0; border: 1px solid #ccc; }
+.legend-box.holiday {background: #ffcccc; border: 1px solid #ccc;}
+.legend-box.today {background-color: #f7f443;}
+/* Remove circle shape and make squares */
+.react-calendar__tile.present-day,
+.react-calendar__tile.wfh-day,
+.react-calendar__tile.halfday-day,
+.react-calendar__tile.leave-day,
+.react-calendar__tile.weekend-day {
+  border-radius: 0 ; /* make square */
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+   /* width: 30px ;   /* smaller width */
+  /* height: 40px ;  smaller height */
+  position: relative;
+  /* Background chhota dikhane ke liye inset shadow */
+  box-shadow: inset 0 0 0 10px white;  /* 5px adjust karo */
+   
+}
+
+/* Example colors */
+.react-calendar__tile.present-day {
+  background-color: #28a745; /* green */
+}
+
+.react-calendar__tile.wfh-day {
+  background-color: #ffc107 ; /* blue */
+}
+
+.react-calendar__tile.halfday-day {
+  background-color:  #2196f3 ; /* yellow */
+}
+
+.react-calendar__tile.leave-day {
+  background-color: #dc3545; /* red */
+}
+
+.react-calendar__tile.weekend-day {
+  background-color: #6c757d; /* gray */
+}
+
+.react-calendar__tile.absent-day {
+  border-radius: 0 !important;   /* square */
+  background-color: #dc3545;     /* red */
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  /* width: 30px !important;
+  height: 30px !important; */
+  /* line-height: 30px; */
+  font-size: 0.8rem;
+}
+
+
+/* Remove the main calendar border and shadow */
+.react-calendar {
+  border: none !important;
+  box-shadow: none !important;
+  width: 100% !important;       /* full width of parent container */
+  max-width: 700px;             /* adjust as per your layout */
+  height: auto;
+  font-size: 1.1rem;            /* increase text size */
+  padding: 10px; 
+}
+
+/* Remove individual tile borders */
+.react-calendar__tile {
+  display: flex !important;
+  align-items: center !important;     
+  justify-content: center !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  min-height: 5px !important;
+  transform: translateZ(0); 
+  padding: 7px !important;
+  
+}
+
+/* Optional: remove focus outline on tiles */
+.react-calendar__tile:focus {
+  outline: none;
+}
+
+
+/* Holidays */
+.holiday-day {
+  background-color: #ffcccc ; /* light red background */
+  color: white ; /* dark red text */
+  /* border-radius: 50%; */
+  font-weight: bold;
+  position: relative;
+  box-shadow: inset 0 0 0 9px white;  /* Pink area bhi chhota */
+  
+}
+
+/* Hover effect for holidays */
+.holiday-day:hover {
+  background-color: #ff9999 !important;
+  cursor: pointer;
+}
+
+/* Show holiday name inside calendar */
+.holiday-tooltip {
+  font-size: 0.65rem;
+  /* color: #ecde5b; */
+  display: block;
+  text-align: center;
+  margin-top: 2px;
+}
+
+
+.present-day {
+  background-color: #28a745 !important; /* green */
+  color: white;
+  border-radius: 50%;
+  
+}
+
+.halfday-day {
+  background-color: #2196f3 !important; /* yellow/orange */
+  color: black;
+  border-radius: 50%;
+}
+
+.pending-regularization-day {
+  border-radius: 0%; 
+}
+
+
+ .react-calendar__tile.weekly-off-day abbr {
+color: red !important;
+  font-weight: bold;
+}
+
+.react-calendar__tile.weekly-off-day {
+  background: none !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+     color: black;
+     gap: 6px !important;
+     
+}
+
+
+
+.sandwich-leave-day {
+  background-color: #f6c3b6 !important;
+  color: #000;
+  border-radius: 50%;
+  
+}
+
+
+.react-calendar__month-view__weekdays__weekday {
+  font-size: 11px;  
+  color: #6c757d !important;
+  
+}
+
+
+/* dipali */
+
+.react-calendar__tile--active,
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd,
+.react-calendar__tile--rangeBothEnds {
+  background: none !important;
+  color: inherit !important;   /* optional: keep your day color */
+  /* You can also add border: none !important; if needed */
+}
+
+.react-calendar__tile abbr {
+  height: 30px !important;
+  width: 30px !important;
+  line-height: 30px !important;
+  display: inline-block;
+}
+.calendar-container {
+    margin-top:0px;
+}
+  .calendar-container .react-calendar .react-calendar__navigation {
+    margin-bottom: 0px;
+    height: 45px !important;
+  }
+  .react-calendar__month-view__days__day {
+    min-height: 0 !important;
+    border: none !important;
+  }
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  justify-content: center !important;
+  width: 100% !important;
+  gap: 8px !important;            
+  padding: 0px !important; 
+}

@@ -1,0 +1,191 @@
+/* sidebar.css */
+
+/* .sidebar {
+  background-color: #3A5FBE;
+  width: 95px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+} */
+
+/* dipali's code */
+.sidebar {
+  background-color: #3A5FBE;
+  width: 95px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: calc(100vh - 56px);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  top: 56px; 
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch; 
+}
+.sidebar::-webkit-scrollbar{
+  width:0px;
+  transition:0.2s;
+}
+
+.sidebar:hover::-webkit-scrollbar{
+  width:6px;
+}
+
+
+.sidebar::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+  background:#ffffff70;
+  border-radius:10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover{
+  background:#ffffffcc;
+}
+
+
+.sidebar {
+  scroll-behavior: smooth;
+}
+
+.sidebar {
+  scroll-behavior: smooth;
+}
+
+.sidebar .nav {
+  margin: 0;
+  padding-top: 25px;
+  
+}
+
+.sidebar .nav-item {
+  padding: 4px 0;
+  
+}
+/* 
+.nav-link {
+  color: white !important;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  transition: background-color 0.2s ease;
+} */
+
+.nav-link {
+  color: white !important;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  width: 100%;      /* Forces nav-link hover expansions to stay within sidebar */
+  max-width: 100%;  /* Prevents extra width from shadows/padding */
+  display: block;
+  height: 68px; /* height added by harshada */
+}
+
+.sidebar .nav-link svg {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bi-calendar-check-fill {
+  width: 20px !important;
+  height: 20px !important;
+  display: inline-block; /* ensure it respects size */
+}
+
+.nav-link h6 {
+  font-size: 11px;
+  margin: 4px 0 0;
+  word-wrap: break-word;
+}
+
+/* Hover effect */
+.nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+/* Active link highlighting - This highlights current page */
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile: hide sidebar by default and slide in
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+} */
+
+/* Mobile responsive - FIX OVERLAP */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    top: 56px;                     /* below header / hamburger */
+    height: calc(100vh - 56px);    /* remaining height */
+    padding-top: 60px;                /* IMPORTANT */
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar .nav {
+    padding-top: 16px;             /* small breathing space */
+  }
+}
+@media (min-width: 760px) and (max-width: 775px) {
+  .sidebar {
+    transform: translateX(-100%) !important;
+    width: 85px;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0) !important;
+  }
+  
+  .btn.btn-primary.d-md-none {
+    display: inline-block !important;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar {
+    width: 85px;
+    height:70px;
+  }
+  
+  .nav-link h6 {
+    font-size: 10px;
+  }
+  
+}

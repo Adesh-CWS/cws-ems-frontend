@@ -1,0 +1,20 @@
+.recharts-wrapper *,
+.recharts-wrapper *:focus,
+.recharts-wrapper *:focus-visible {
+  outline: none !important;
+}
+
+
+.recharts-wrapper svg {
+  pointer-events: auto;
+}
+
+.recharts-wrapper svg:focus {
+  outline: none !important;
+}
+
+/* Remove invisible focus rect drawn by browser */
+.recharts-wrapper foreignObject {
+  outline: none !important;
+  border: none !important;
+}

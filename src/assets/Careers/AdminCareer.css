@@ -1,0 +1,412 @@
+
+.job-module .job-form {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+.job-module .section-title {
+  color: #3A5FBE;
+  margin: 18px 0 12px;
+  font-size: 18px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 4px;
+}
+
+.job-module .row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.job-module .two-col {
+  flex-direction: row;
+  gap: 12px;
+}
+
+.job-module .field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.job-module .field label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.job-module .field input,
+.job-module .field select,
+.job-module .field textarea {
+     width: 100%;
+  padding: 7px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.job-module .field textarea {
+  resize: none;
+}
+
+.job-module .field input:focus,
+.job-module .field select:focus,
+.job-module .field textarea:focus {
+  outline: none;
+  border-color: #3A5FBE;
+}
+
+.job-module .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.job-module .modal-footer button {
+  padding: 7px 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.job-module .modal-footer .cancel {
+  background: #6c757d;
+  color: #fff;
+}
+
+.job-module .modal-footer .save {
+  background: #1a4fd8;
+  color: #fff;
+}
+.job-module .modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.job-module .modal-container {
+  background: #fff;
+  width: 620px;              /* increased width */
+  max-height: 80vh;         /* reduced height */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+}
+
+.job-module .modal-header {
+  background: #1a4fd8;
+  color: #fff;
+  padding: 10px 16px;
+  font-weight: 600;
+  border-radius: 8px 8px 0 0;
+}
+
+.job-module .modal-body {
+  padding: 16px;
+  overflow-y: auto;         /* makes form scrollable */
+  flex: 1;
+}
+/* ===== VIEW POPUP (GLOBAL) ===== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.modal-container {
+  background: #ffffff;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.modal-body {
+  padding: 16px;
+  overflow-y: auto;
+}
+
+
+.job-module .modal-overlay {
+  background: rgba(0, 0, 0, 0.55);   
+}
+
+
+.job-details-wrapper {
+  padding: 12px;
+  background: #f5f7fb;
+}
+
+
+.job-card {
+  background: #fff;
+  border: 1px solid #e3e6ef;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+
+.job-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a4fd8;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 6px;
+}
+
+
+.job-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.job-info-grid .label {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.job-info-grid p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #212529;
+  font-weight: 500;
+}
+
+
+.job-section {
+  margin-top: 12px;
+}
+
+.job-section b {
+  color: #212529;
+  font-size: 14px;
+}
+
+
+.job-section ul {
+  margin-top: 8px;
+  padding-left: 18px;
+}
+
+.job-section ul li {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+
+.job-desc {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.candidate-card {
+  border: 1px solid #dbe1f1;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  background: #ffffff;
+}
+
+
+.candidate-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3A5FBE;
+  margin-bottom: 10px;
+}
+
+
+.candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 8px;
+  column-gap: 20px;
+}
+
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #3A5FBE;
+  margin-right: 6px;
+}
+
+.value {
+  font-size: 13px;
+  color: #212529;
+}
+
+
+.resume-link {
+  font-size: 13px;
+  color: #3A5FBE;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.resume-link:hover {
+  color: #1f3fbf;
+}
+
+.status-badge {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+
+.status-badge.applied {
+  background: #e8edff;
+  color: #3A5FBE;
+}
+
+
+.status-badge.interview {
+  background: #fff4cc;
+  color: #a37b00;
+}
+
+.status-badge.selected {
+  background: #d1f7e2;
+  color: #1f8f5f;
+}
+
+/* //aded by Mrudal */
+
+.job-tab-btn {
+  border: 1px solid #3A5FBE;
+  color: #3A5FBE;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.job-tab-btn:hover {
+  background-color: #3A5FBE;
+  color: #ffffff;
+  border-color: #3A5FBE;
+}
+
+.job-tab-btn.active {
+  background-color: #3A5FBE;
+  color: #ffffff;
+  border-color: #3A5FBE
+}
+
+
+.custom-outline-btn {
+  border: 1px solid #3A5FBE;
+  color: #3A5FBE;
+  background-color: transparent;
+  transition: all 0.2 ease;
+}
+
+.custom-outline-btn:hover {
+  background-color: #3A5FBE;
+  color: #ffffff;
+  border-color: #3A5FBE;
+}
+
+.custom-outline-btn.active {
+  background-color: #3A5FBE;
+  color: #ffffff;
+  border-color: #3A5FBE;
+}
+
+
+/* //Added by Samiksha */
+
+.action-btn {
+  min-width: 120px;          /* same width */
+  height: 38px;              /* same height */
+  padding: 6px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-cancel-btn {
+  background-color: #f1f3f5;
+  color: #3A5FBE;
+  border: 1px solid #3A5FBE;  
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-cancel-btn:hover {
+  background-color: #3A5FBE;   /* blue on hover */
+  color: #ffffff;              /* white text */
+  border-color: #3A5FBE;
+  cursor: pointer;
+}
+
+.custom-primary-btn {
+  background-color: #f1f3f5;
+  color: #3A5FBE;
+  border: 1px solid #3A5FBE;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-primary-btn:hover {
+  background-color: #3A5FBE;
+  color: #ffffff;
+  border-color: #3A5FBE;
+  cursor: pointer;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.modal-header-custom {
+  background-color: #3A5FBE;
+  color: #ffffff;
+  padding: 16px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 6px 6px 0 0;
+  position: relative;   /* 🔥 MUST */
+}
+
+
+/* //Added by Rushikesh */
+.modal-close-btn {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+
+
+
+

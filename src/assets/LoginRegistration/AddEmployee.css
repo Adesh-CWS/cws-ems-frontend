@@ -1,0 +1,91 @@
+/* Modal outer container */
+.custom-modal {
+  width: 700px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Header */
+.custom-modal-header {
+  display: flex;
+ 
+  background-color: #3A5FBE; /* dark blue header */
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Title text */
+.custom-modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
+.formModel{
+  color: #3A5FBE;
+   margin-top: -15px; 
+   
+  
+}
+.less-gap  {
+  margin-bottom: 20px; /* adjust to your liking */
+}
+.formModel .form-control,
+.formModel .form-select {
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+
+
+.formModel label {
+  font-weight: bold;
+  color: #3A5FBE !important;
+  margin-top: 10px;
+  display: block;
+}
+/* Close button */
+.custom-modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.custom-modal-close:hover {
+  color: #ffeb3b; /* yellow hover effect */
+  transform: scale(1.2);
+}
+
+/* Modal body */
+.custom-modal-body {
+  padding: 25px 30px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+

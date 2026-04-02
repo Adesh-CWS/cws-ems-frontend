@@ -1,0 +1,93 @@
+.sidebar {
+  background-color: #3A5FBE;
+  width: 95px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.sidebar {
+  scroll-behavior: smooth;
+}
+
+.sidebar .nav {
+  margin: 0;
+  padding-top: 25px;
+}
+
+.sidebar .nav-item {
+  padding: 4px 0;
+}
+
+.nav-link {
+  color: white !important;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  height: 68px;
+}
+
+.sidebar .nav-link svg {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-link h6 {
+  font-size: 11px;      /*  OLD EMS MATCH */
+  font-weight: 500;
+  margin: 4px 0 0;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+.nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile: hide sidebar by default and slide in */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* Keyboard focus – sidebar nav links */
+.sidebar .nav-link:focus-visible {
+  outline: 2px solid #000;      /* black box */
+  outline-offset: 3px;
+  border-radius: 6px;
+} 

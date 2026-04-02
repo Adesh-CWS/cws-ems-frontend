@@ -1,0 +1,29 @@
+ .custom-outline-btn {
+   color: #3A5FBE;
+   border-color: #3A5FBE;
+   background-color: transparent;
+   transition: background-color 0.3s, color 0.3s;
+ }
+
+ .custom-outline-btn:hover {
+   color: #fff !important;
+   background-color: #3A5FBE !important;
+   border-color: #3A5FBE !important;
+ }
+
+
+ .custom-outline-btn:focus {
+  color: #fff !important;
+  background-color: #3A5FBE !important;
+  border-color: #3A5FBE !important;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(58, 95, 190, 0.25);
+}
+
+.custom-outline-btn:focus-visible {
+  color: #fff !important;
+  background-color: #3A5FBE !important;
+  /* border-color: #3A5FBE !important; */
+  /* outline: 2px solid #3A5FBE; */
+  /* outline-offset: 2px; */
+}

@@ -1,0 +1,130 @@
+/* Container must be relative for absolute positioning to work */
+.dropdown {
+  position: relative;
+}
+
+.notification-dropdown-fullwidth {
+  
+  position: absolute !important;
+  top: 80% !important; 
+  right: 0 !important;
+  left: -48px !important;
+  width: 400px !important;
+  max-width: 400px !important;
+  max-height: 550px !important; 
+  margin-top: 10px !important; 
+  padding: 0 !important;
+  transform: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+  overflow: hidden !important;
+  z-index: 1050 !important;
+  display: none; 
+}
+
+.dropdown-menu.notification-dropdown-fullwidth.show {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.notification-scroll-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 400px; 
+}
+
+
+
+.dropdown-menu.notification-dropdown-fullwidth.show {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.notification-header {
+  padding: 18px 20px;
+  border-bottom: 2px solid #e9ecef;
+  background-color: #fff;
+  flex-shrink: 0;
+}
+
+.notification-header h6 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.notification-header .badge {
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+
+/* Dropdown item styling */
+.notification-dropdown-fullwidth .dropdown-item {
+  white-space: normal;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.notification-dropdown-fullwidth .dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.notification-dropdown-fullwidth .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.notification-dropdown-fullwidth .dropdown-item:not(.text-muted) {
+  background-color: #f0f7ff;
+  border-left: 4px solid #0d6efd;
+}
+
+.notification-footer {
+  padding: 12px 16px;
+  border-top: 2px solid #e9ecef;
+  background-color: #fff;
+  flex-shrink: 0;
+}
+
+.notification-footer .btn {
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 8px;
+}
+
+.notification-scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notification-scroll-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.notification-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.notification-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.notification-scroll-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .notification-dropdown-fullwidth {
+    width: 320px !important;
+    max-width: 95vw !important;
+    right: 0 !important; 
+    top: 26px !important;  
+    left: -175px !important;
+    /* CHANGED: from 70px to 80px - more space below bell icon */
+    max-height: calc(100vh - 95px) !important; 
+    /* CHANGED: Adjusted for new top position */
+   }
+  }

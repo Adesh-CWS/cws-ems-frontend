@@ -1,0 +1,150 @@
+/* TMS Page - Account for top tab bar */
+.tmsPage {
+  min-height: calc(100vh - 56px);
+  margin-top: 56px; 
+  background: #f5f7fb;
+  display: flex;
+  overflow: hidden; /* IMPORTANT */
+}
+
+/* TMS Main Content Area */
+.tmsMain {
+  flex: 1;
+  min-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  background: #f5f7fb;
+  margin-left: 0;
+   min-width: 0;
+}
+
+/* TMS Content Container */
+.tmsContent {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: #f5f7fb;
+  padding: 16px;
+  margin-top: 0; 
+ 
+}
+
+
+.tmsMain > header,
+.tmsMain > .header-wrapper {
+  margin-top: 0 !important;
+  position: relative;
+  z-index: 100;
+}
+
+
+@media (min-width: 769px) {
+  .tmsMain {
+    margin-left: 95px; 
+  }
+}
+
+/* Top Tab Bar Responsive Styles */
+.top-tab-bar {
+  padding: 10px 20px !important;
+}
+
+.tab-container {
+  max-width: 100%;
+}
+
+.tab-button {
+  white-space: nowrap;
+}
+
+.tab-full-text {
+  display: inline;
+}
+
+.tab-short-text {
+  display: none;
+}
+
+/* Tablet Responsive (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .tab-button {
+    padding: 10px 35px !important;
+    font-size: 14px !important;
+  }
+  
+  .tmsContent {
+    padding: 14px;
+  }
+}
+
+/* Mobile & Small Tablet Responsive (up to 768px) */
+@media (max-width: 768px) {
+  .tmsPage {
+    margin-top: 56px;
+    flex-direction: column;
+  }
+
+  .tmsMain {
+    margin-left: 0 !important;
+  }
+
+  .tmsContent {
+    padding: 12px;
+  }
+
+  /* Mobile tab adjustments */
+  .top-tab-bar {
+    padding: 8px 10px !important;
+    height: 52px !important;
+  }
+
+  .tab-container {
+    gap: 6px !important;
+    padding: 4px !important;
+    width: 100%;
+    max-width: calc(100vw - 20px);
+  }
+
+  .tab-button {
+    padding: 8px 20px !important;
+    font-size: 13px !important;
+    flex: 1;
+  }
+
+  /* Show short text on mobile */
+  .tab-full-text {
+    display: none !important;
+  }
+
+  .tab-short-text {
+    display: inline !important;
+  }
+}
+
+/* Extra Small Mobile (up to 425px) */
+@media (max-width: 425px) {
+  .tmsContent {
+    padding: 8px;
+  }
+
+  .top-tab-bar {
+    padding: 6px 8px !important;
+    height: 48px !important;
+  }
+
+  .tab-container {
+    gap: 4px !important;
+    padding: 3px !important;
+  }
+
+  .tab-button {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Ensure no horizontal scroll */
+body, html {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}

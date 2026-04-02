@@ -1,0 +1,181 @@
+/* Base Layout */
+.dashboard-layout {
+  display: flex;
+  display: flex;
+  min-height: calc(100vh - 56px);
+  margin-top: 56px;
+  overflow-x: hidden;
+}
+
+/* Main Content Wrapper */
+.main-content-wrapper {
+  flex-grow: 1;
+  margin-left: 80px;
+  background-color: #f5f7fb;
+   width: calc(100% - 80px);
+  overflow-x: hidden;
+  transition: margin-left 0.3s ease;
+}
+
+/* Main Container */
+.main-container {
+  padding: 1rem;
+   max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Top Tab Bar Responsive Styles */
+.top-tab-bar {
+  padding: 10px 20px !important;
+}
+
+.tab-container {
+  max-width: 100%;
+}
+
+.tab-button {
+  white-space: nowrap;
+}
+
+.tab-full-text {
+  display: inline;
+}
+
+.tab-short-text {
+  display: none;
+}
+
+/* Tablet Responsive (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .main-content-wrapper {
+    margin-left: 70px;
+    width: calc(100% - 70px);
+  }
+  
+  .main-container {
+    padding: 0.875rem;
+  }
+
+  /* Reduce padding on tabs for tablet */
+  .tab-button {
+    padding: 10px 35px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Mobile & Small Tablet Responsive (up to 768px) */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    margin-top: 56px;
+  }
+
+  .main-content-wrapper {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  
+  .main-container {
+    padding: 0.5rem !important;
+    width: 100%;
+  }
+  
+  .container-fluid {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  /* Mobile tab adjustments */
+  .top-tab-bar {
+    padding: 8px 10px !important;
+    height: 52px !important;
+  }
+
+  .tab-container {
+    gap: 6px !important;
+    padding: 4px !important;
+    width: 100%;
+    max-width: calc(100vw - 20px);
+  }
+
+  .tab-button {
+    padding: 8px 20px !important;
+    font-size: 13px !important;
+    flex: 1;
+  }
+
+  /* Show short text on mobile */
+  .tab-full-text {
+    display: none !important;
+  }
+
+  .tab-short-text {
+    display: inline !important;
+  }
+}
+
+/* Extra Small Mobile (up to 425px) */
+@media (max-width: 425px) {
+  .main-container {
+    padding: 0.25rem !important;
+  }
+  
+  .container-fluid {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+
+  .top-tab-bar {
+    padding: 6px 8px !important;
+    height: 48px !important;
+  }
+
+  .tab-container {
+    gap: 4px !important;
+    padding: 3px !important;
+  }
+
+  .tab-button {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Ensure no horizontal scroll */
+body, html {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
+
+@media (min-width:768px) and (max-width:1024px){
+
+  
+  .container-fluid .row:first-child{
+    flex-wrap: wrap;
+  }
+
+
+  .container-fluid .col-md-8{
+    width:100% !important;
+  }
+
+  .container-fluid .col-md-4{
+    width:100% !important;
+  }
+
+
+  .container-fluid .col-md-6{
+    width:50% !important;
+  }
+
+
+  .container-fluid .col-md-4.mb-2.mt-3{
+    width:100% !important;
+    margin-top:15px !important;
+  }
+
+
+  .d-flex{
+    flex-wrap:wrap;
+  }
+
+}
